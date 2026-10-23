@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviu | proto-upcycling-frontend</title>
+  <meta name="description" content="Reviu: plataforma d'economia circular per trobar, filtrar i reservar objectes reutilitzables de deixalleries, Repair Cafès i botigues de segona mà.">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalog">Salta al catàleg</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Reviu, inici">
+        <span class="brand__logo" aria-hidden="true">♻</span>
+        <span>Reviu <span class="brand__sub">| proto-upcycling-frontend</span></span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">Economia circular</p>
+        <h1>Donem una segona vida als objectes</h1>
+        <p class="lead">Menys residus, més comunitat. Troba materials, peces i objectes reutilitzables de deixalleries, Repair Cafès i botigues de segona mà, i reserva'ls en dos minuts.</p>
+        <button id="btn-repair" class="btn btn--light" type="button">Necessiten reparació (Repair Cafè) →</button>
+
+        <section class="impacte" aria-labelledby="impacte-title">
+          <h2 id="impacte-title" class="impacte__title">Baròmetre d'impacte comunitari</h2>
+          <dl class="impacte__grid">
+            <div class="stat">
+              <dt>Objectes recuperats/reservats</dt>
+              <dd id="stat-objectes" aria-live="polite">0</dd>
+            </div>
+            <div class="stat">
+              <dt>kg de CO₂ estalviats</dt>
+              <dd id="stat-co2" aria-live="polite">0</dd>
+            </div>
+            <div class="stat">
+              <dt>Objectes al catàleg</dt>
+              <dd id="stat-cataleg">0</dd>
+            </div>
+          </dl>
+          <p class="impacte__note">Xifres: històric simulat de la comunitat més les reserves fetes en aquest navegador.</p>
+        </section>
+      </div>
+    </section>
+
+    <section id="catalog" class="catalog container" aria-labelledby="catalog-title">
+      <div class="catalog__head">
+        <h2 id="catalog-title">Catàleg</h2>
+        <p id="resultats" class="results-count" aria-live="polite"></p>
+      </div>
+
+      <div class="filters" role="search">
+        <label class="field field--search">
+          <span>Cerca</span>
+          <input type="search" id="f-text" placeholder="Cerca per títol, descripció o origen…" autocomplete="off">
+        </label>
+
+        <label class="field">
+          <span>Categoria</span>
+          <select id="f-categoria"></select>
+        </label>
+
+        <label class="field">
+          <span>Tipus d'origen</span>
+          <select id="f-origen"></select>
+        </label>
+
+        <label class="field">
+          <span>Estat</span>
+          <select id="f-estat"></select>
+        </label>
+
+        <div class="filters__actions">
+          <label class="switch">
+            <input type="checkbox" id="f-gratuit">
+            <span class="switch__track" aria-hidden="true"></span>
+            <span>Només gratuïts (0 €)</span>
+          </label>
+          <button type="button" class="btn btn--text" id="f-reset">Neteja filtres</button>
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+
+      <div id="buit" class="empty" hidden>
+        <p>Cap objecte coincideix amb la cerca.</p>
+        <button type="button" class="btn btn--ghost" data-action="reset">Mostra tots els objectes</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Alineat amb la <strong>Directiva (UE) 2024/1799 sobre el dret a reparar</strong> i amb els <strong>ODS 11, 12 i 13</strong> de l'Agenda 2030.</p>
+      <p><a href="https://github.com/jordidh/proto-upcycling-frontend" target="_blank" rel="noopener">Codi obert a GitHub</a> · Llicència MIT</p>
+    </div>
+  </footer>
+
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" id="dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button type="button" class="modal__close" data-close aria-label="Tanca">×</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
