@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "proto-upcycling-frontend",
+  "compatibility_date": "2026-11-21",
+  // Static site: serve the repo root (app at /, landing page at /landing/)
+  "assets": {
+    "directory": "./"
+  },
+  // Required by `npx wrangler preview`; empty means defaults for branch previews
+  "previews": {}
+}

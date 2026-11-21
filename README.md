@@ -122,6 +122,11 @@ MIT; see `LICENSE`.
 
 ## Changelog
 
+### v0.1.1 — 2026-11-21
+
+**Changed**
+- Added `wrangler.jsonc` so the site can be deployed and previewed with Cloudflare Wrangler (`npx wrangler preview` needs its `previews` block).
+
 ### v0.1.0 — 2026-11-21
 
 **Added**
