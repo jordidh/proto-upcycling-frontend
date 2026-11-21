@@ -122,6 +122,11 @@ MIT; see `LICENSE`.
 
 ## Changelog
 
+### v0.3.0 — 2026-11-21
+
+**Added**
+- Language selector on the landing page: Català (default), Español and English. The choice is remembered in the browser, and the page opens in Spanish or English if the browser uses that language.
+
 ### v0.2.0 — 2026-11-21
 
 **Added**
