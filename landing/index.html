@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reviu | Economia circular per a municipis, entitats i ciutadania</title>
+  <meta name="description" content="Reviu connecta deixalleries, Repair Cafès, entitats socials, empreses i ciutadania per trobar, reservar i reutilitzar objectes amb traçabilitat oficial. Apunta't al pilot.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#F8FAF9',
+            emerald: { deep: '#064E3B', mint: '#10B981' },
+            amber: { cta: '#D97706', ctaDark: '#B45309' },
+            ink: '#1F2937'
+          },
+          fontFamily: { sans: ['system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+    :focus-visible { outline: 3px solid #10B981; outline-offset: 2px; }
+    .ring-soft { box-shadow: 0 1px 2px rgba(6,78,59,.06), 0 8px 24px -12px rgba(6,78,59,.25); }
+  </style>
+</head>
+<body class="bg-cream text-ink font-sans antialiased">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-md focus:shadow">Salta al contingut</a>
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-emerald-deep/10">
+    <nav class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-4" aria-label="Navegació principal">
+      <a href="#top" class="flex items-center gap-2 font-bold text-emerald-deep text-lg" aria-label="Reviu, inici">
+        <!-- Logo: trèvol de 4 fulles amb fletxes circulars -->
+        <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <g fill="#10B981">
+            <circle cx="12" cy="11" r="5"/>
+            <circle cx="20" cy="11" r="5"/>
+            <circle cx="12" cy="19" r="5"/>
+            <circle cx="20" cy="19" r="5"/>
+          </g>
+          <path d="M16 3.5 a12.5 12.5 0 1 1 -10.8 6.2" fill="none" stroke="#064E3B" stroke-width="2" stroke-linecap="round"/>
+          <path d="M5.2 6.2 l0.2 3.8 l3.6 -1" fill="none" stroke="#064E3B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Reviu
+      </a>
+
+      <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-ink/80">
+        <li><a class="hover:text-emerald-deep" href="#com-funciona">Com funciona</a></li>
+        <li><a class="hover:text-emerald-deep" href="#per-a-qui">Per a qui és</a></li>
+        <li><a class="hover:text-emerald-deep" href="#impacte">Impacte</a></li>
+        <li><a class="hover:text-emerald-deep" href="#faq">Preguntes freqüents</a></li>
+      </ul>
+
+      <a href="#registre" class="inline-flex items-center rounded-full bg-amber-cta px-4 py-2 text-sm font-semibold text-white shadow hover:bg-amber-ctaDark transition">
+        Vull participar-hi
+      </a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO -->
+    <section id="top" class="relative overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-b from-emerald-mint/10 via-cream to-cream" aria-hidden="true"></div>
+      <div class="mx-auto max-w-6xl px-4 pt-12 pb-16 md:pt-20 md:pb-24 grid gap-12 lg:grid-cols-2 lg:items-center">
+
+        <div>
+          <p class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-emerald-deep ring-1 ring-emerald-deep/15">
+            <span aria-hidden="true">🌱</span> Economia circular real al teu municipi · Prova Pilot 2026
+          </p>
+          <h1 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-emerald-deep">
+            Dona una segona vida als objectes del teu barri. Estalvia diners, evita residus.
+          </h1>
+          <p class="mt-5 text-lg text-ink/75 max-w-xl">
+            Connectem deixalleries, Repair Cafès, entitats socials i veïns en un sol lloc: trobes mobles, peces i eines reutilitzables i les reserves en dos minuts, amb garantia i traçabilitat oficial.
+          </p>
+
+          <form id="hero-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl" novalidate>
+            <label class="sr-only" for="hero-email">Correu electrònic</label>
+            <input id="hero-email" type="email" required autocomplete="email" placeholder="El teu correu electrònic"
+              class="flex-1 rounded-xl border border-emerald-deep/20 bg-white px-4 py-3 text-base focus:border-emerald-mint focus:outline-none">
+            <button type="submit" class="rounded-xl bg-amber-cta px-5 py-3 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition whitespace-nowrap">
+              Reserva la teva plaça al pilot
+            </button>
+          </form>
+          <p id="hero-error" class="mt-2 text-sm text-red-700" role="alert" hidden></p>
+          <p class="mt-3 text-sm text-ink/60">Gratuït · Sense compromís · Accés prioritari</p>
+        </div>
+
+        <!-- Previsualització interactiva de l'app -->
+        <div class="relative">
+          <div class="rounded-3xl bg-white p-5 md:p-6 ring-soft ring-1 ring-emerald-deep/10">
+            <div class="flex items-center justify-between text-xs text-ink/60 mb-4">
+              <span class="font-semibold text-emerald-deep">Reviu · Catàleg</span>
+              <span class="rounded-full bg-emerald-mint/15 px-2 py-0.5 text-emerald-deep font-medium">3 objectes a prop</span>
+            </div>
+
+            <article class="rounded-2xl border border-emerald-deep/10 overflow-hidden">
+              <div class="h-40 bg-gradient-to-br from-amber-100 via-amber-50 to-emerald-mint/20 flex items-center justify-center" aria-hidden="true">
+                <!-- Il·lustració: taula de fusta -->
+                <svg width="150" height="110" viewBox="0 0 150 110">
+                  <rect x="10" y="24" width="130" height="14" rx="3" fill="#B45309"/>
+                  <rect x="18" y="38" width="10" height="62" rx="2" fill="#92400E"/>
+                  <rect x="122" y="38" width="10" height="62" rx="2" fill="#92400E"/>
+                  <rect x="30" y="46" width="6" height="54" fill="#92400E" opacity=".5"/>
+                  <path d="M40 24 q35 -18 70 0" fill="none" stroke="#78350F" stroke-width="1.5" opacity=".4"/>
+                </svg>
+              </div>
+              <div class="p-4">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <h2 class="font-semibold text-ink">Taula de fusta massissa</h2>
+                    <p class="text-sm text-ink/60">Punt Verd Gràcia · Barcelona - Gràcia</p>
+                  </div>
+                  <p class="text-lg font-bold text-emerald-deep" id="demo-price">0 €</p>
+                </div>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="rounded-full bg-emerald-deep/10 px-2.5 py-1 text-emerald-deep font-medium">Funcional</span>
+                  <span class="rounded-full bg-emerald-mint/15 px-2.5 py-1 text-emerald-deep font-medium">Estalvi: 24 kg CO₂</span>
+                  <span class="rounded-full bg-amber-100 px-2.5 py-1 text-amber-800 font-medium">Garantia 1 any</span>
+                </div>
+                <button id="demo-btn" type="button" data-state="free"
+                  class="mt-4 w-full rounded-xl bg-emerald-deep px-4 py-2.5 font-semibold text-white hover:bg-emerald-deep/90 transition">
+                  Reservar aquest objecte
+                </button>
+                <p id="demo-msg" class="mt-2 text-xs text-ink/60 min-h-[1rem]" aria-live="polite"></p>
+              </div>
+            </article>
+          </div>
+          <p class="mt-3 text-xs text-ink/50 text-center">Previsualització interactiva del prototip. Dades d'exemple.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL PROOF / IMPACTE -->
+    <section id="impacte" class="bg-white border-y border-emerald-deep/10 scroll-mt-20">
+      <div class="mx-auto max-w-6xl px-4 py-14">
+        <p class="text-center text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per què ara</p>
+        <h2 class="mt-2 text-center text-3xl font-bold text-emerald-deep">Les xifres que ens han motivat</h2>
+
+        <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+          <div class="rounded-2xl bg-cream p-6">
+            <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="75">0</span>%</dd>
+            <dt class="mt-2 text-sm text-ink/70">de la població espanyola ha comprat productes de segona mà</dt>
+          </div>
+          <div class="rounded-2xl bg-cream p-6">
+            <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="15">0</span>–25%</dd>
+            <dt class="mt-2 text-sm text-ink/70">dels mobles de les deixalleries podrien tornar a usar-se</dt>
+          </div>
+          <div class="rounded-2xl bg-cream p-6">
+            <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="3">0</span>%</dd>
+            <dt class="mt-2 text-sm text-ink/70">com a màxim es prepara realment per a la reutilització</dt>
+          </div>
+          <div class="rounded-2xl bg-cream p-6">
+            <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="40">0</span>%+</dd>
+            <dt class="mt-2 text-sm text-ink/70">de recuperació de petits aparells quan les entitats hi accedeixen a temps</dt>
+          </div>
+        </dl>
+
+        <p class="mt-8 text-center text-sm text-ink/70 max-w-2xl mx-auto">
+          Dissenyat per col·laborar amb Deixalleries Municipals, Repair Cafès, Entitats Socials i Ajuntaments.
+        </p>
+        <p class="mt-3 text-center text-xs text-ink/50">Fonts: OCU (2026), AERESS (balanç social 2025) i estimacions de caracterització de deixalleries recollides a la proposta de valor de Reviu.</p>
+      </div>
+    </section>
+
+    <!-- PROBLEMA VS SOLUCIÓ -->
+    <section class="mx-auto max-w-6xl px-4 py-20">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per què Reviu?</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Ara mateix, la major part del que es podria reutilitzar acaba triturat</h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <div class="rounded-3xl bg-white p-7 ring-1 ring-red-900/10">
+          <h3 class="text-lg font-bold text-red-800 flex items-center gap-2"><span aria-hidden="true">✕</span> Avui</h3>
+          <ul class="mt-5 space-y-4 text-ink/80">
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Només un 1–3% dels mobles dipositats es prepara per a la reutilització.</li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> El transport (40–80 €) sovint costa més que el valor del moble.</li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Els aparells es malmeten a la intempèrie o els roben el coure i el motor.</li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Sense garantia ni certificat elèctric, moltes entitats no els poden vendre.</li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Els tràmits amb l'ARC són lents i manuals.</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl bg-emerald-deep p-7 text-white shadow-xl">
+          <h3 class="text-lg font-bold text-emerald-mint flex items-center gap-2"><span aria-hidden="true">✓</span> Amb Reviu</h3>
+          <ul class="mt-5 space-y-4 text-white/90">
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Les deixalleries i entitats publiquen l'objecte en segons, i el tallers el veuen a l'instant.</li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> La cerca per proximitat et mostra el que tens a prop, sense exposar la teva adreça.</li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Cada objecte té estat, garantia i preu clars abans de reservar-lo.</li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Els estats de traçabilitat per a l'ARC es registren automàticament.</li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Reserves amb termini de 72 h: si no es recull, torna a estar disponible.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- COM FUNCIONA -->
+    <section id="com-funciona" class="bg-white border-y border-emerald-deep/10 scroll-mt-20">
+      <div class="mx-auto max-w-6xl px-4 py-20">
+        <div class="max-w-2xl">
+          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Com funciona</p>
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Tres passos, segons qui ets</h2>
+        </div>
+
+        <div class="mt-10" data-tabs>
+          <div role="tablist" aria-label="Tipus d'usuari" class="inline-flex flex-col sm:flex-row gap-2 rounded-2xl bg-cream p-1.5 ring-1 ring-emerald-deep/10 w-full sm:w-auto">
+            <button id="tab-a" role="tab" aria-selected="true" aria-controls="panel-a" type="button"
+              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center">
+              Ciutadania i reparadors
+            </button>
+            <button id="tab-b" role="tab" aria-selected="false" aria-controls="panel-b" tabindex="-1" type="button"
+              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center">
+              Entitats, empreses i administració
+            </button>
+          </div>
+
+          <div id="panel-a" role="tabpanel" aria-labelledby="tab-a" class="tab-panel mt-8 grid gap-5 md:grid-cols-3">
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">1</span>
+              <h3 class="mt-4 font-bold text-lg">Cerca a prop de casa</h3>
+              <p class="mt-2 text-ink/70">Filtra per categoria, origen i estat. Veu què hi ha al teu barri o al teu municipi.</p>
+            </div>
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">2</span>
+              <h3 class="mt-4 font-bold text-lg">Reserva amb codi</h3>
+              <p class="mt-2 text-ink/70">Reserva en dos minuts i rep un codi de reserva (per exemple REC-84920) per recollir l'objecte.</p>
+            </div>
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">3</span>
+              <h3 class="mt-4 font-bold text-lg">Recull i estalvia</h3>
+              <p class="mt-2 text-ink/70">Recull l'objecte dins de 72 hores amb la garantia indicada. Tu també estalvies CO₂.</p>
+            </div>
+          </div>
+
+          <div id="panel-b" role="tabpanel" aria-labelledby="tab-b" class="tab-panel mt-8 grid gap-5 md:grid-cols-3" hidden>
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">1</span>
+              <h3 class="mt-4 font-bold text-lg">Publica en 30 segons</h3>
+              <p class="mt-2 text-ink/70">Puja un objecte o un lot des del mòbil, o carrega l'inventari amb un fitxer CSV o per API.</p>
+            </div>
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">2</span>
+              <h3 class="mt-4 font-bold text-lg">Geolocalització i alertes</h3>
+              <p class="mt-2 text-ink/70">La plataforma localitza el recurs i avisa automàticament tallers, entitats i professionals acreditats propers.</p>
+            </div>
+            <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
+              <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">3</span>
+              <h3 class="mt-4 font-bold text-lg">Traçabilitat i certificat</h3>
+              <p class="mt-2 text-ink/70">Estats oficials per a l'ARC, mètriques de CO₂ i kg desviats i certificat d'impacte, sense paperassa.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PER A QUI ÉS -->
+    <section id="per-a-qui" class="mx-auto max-w-6xl px-4 py-20 scroll-mt-20">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per a qui és</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Guanya tothom qui hi participa</h2>
+      </div>
+
+      <div class="mt-10 grid gap-6 sm:grid-cols-2">
+        <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
+          <div class="text-3xl" aria-hidden="true">🛋️</div>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Ciutadania</h3>
+          <p class="mt-2 text-ink/75">Mobles, peces i eines a cost zero o simbòlic, amb garantia. Cerca per barri o codi postal sense mostrar mai la teva adreça exacta.</p>
+        </article>
+        <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
+          <div class="text-3xl" aria-hidden="true">🔧</div>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Repair Cafès i entitats socials</h3>
+          <p class="mt-2 text-ink/75">Accés als materials abans que es malmetin a la intempèrie, amb circuits clars de recollida i un registre per certificar la seguretat elèctrica. Més inserció sociolaboral.</p>
+        </article>
+        <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
+          <div class="text-3xl" aria-hidden="true">🏢</div>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Empreses i professionals</h3>
+          <p class="mt-2 text-ink/75">Dona sortida legal i àgil als excedents i al mobiliari en desús. Els professionals acreditats poden accedir a lots de fusta municipal amb els requisits LPRL validats.</p>
+        </article>
+        <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
+          <div class="text-3xl" aria-hidden="true">🏛️</div>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Administració local</h3>
+          <p class="mt-2 text-ink/75">Compleix les metes de prevenció de residus i genera automàticament informes de kg desviats, CO₂ estalviat i dades exportables en JSON o CSV per a auditories ODS.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- REGISTRE -->
+    <section id="registre" class="bg-emerald-deep text-white scroll-mt-20">
+      <div class="mx-auto max-w-6xl px-4 py-20 grid gap-12 lg:grid-cols-2 lg:items-start">
+        <div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Pilot 2026 · Accés prioritari</p>
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold">Uneix-te a la comunitat que transforma residus en recursos</h2>
+          <p class="mt-5 text-white/80 max-w-md">Apunta't al llistat d'espera del pilot. T'avisarem quan el teu municipi o la teva entitat pugui començar, i tindràs accés prioritari a les primeres reserves.</p>
+          <ul class="mt-6 space-y-2 text-white/80 text-sm">
+            <li>✓ Gratuït durant el pilot</li>
+            <li>✓ Sense compromís</li>
+            <li>✓ Les teves dades es tracten segons el RGPD</li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl bg-white text-ink p-6 md:p-8 shadow-2xl">
+          <!-- Formulari -->
+          <form id="waitlist-form" novalidate class="space-y-5" aria-describedby="form-hint">
+            <p id="form-hint" class="text-sm text-ink/60">Els camps amb * són obligatoris.</p>
+
+            <div>
+              <label for="f-nom" class="block text-sm font-semibold">Nom o organització *</label>
+              <input id="f-nom" name="nom" type="text" required autocomplete="name" aria-describedby="err-nom"
+                class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
+              <p id="err-nom" class="mt-1 text-sm text-red-700" hidden></p>
+            </div>
+
+            <div>
+              <label for="f-email" class="block text-sm font-semibold">Correu electrònic *</label>
+              <input id="f-email" name="email" type="email" required autocomplete="email" aria-describedby="err-email"
+                class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
+              <p id="err-email" class="mt-1 text-sm text-red-700" hidden></p>
+            </div>
+
+            <div>
+              <label for="f-municipi" class="block text-sm font-semibold">Municipi o codi postal *</label>
+              <input id="f-municipi" name="municipi" type="text" required autocomplete="postal-code" aria-describedby="err-municipi"
+                class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
+              <p id="err-municipi" class="mt-1 text-sm text-red-700" hidden></p>
+            </div>
+
+            <div>
+              <label for="f-rol" class="block text-sm font-semibold">Quin és el teu perfil? *</label>
+              <select id="f-rol" name="rol" required aria-describedby="err-rol"
+                class="mt-1.5 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 focus:border-emerald-mint focus:outline-none">
+                <option value="">Tria una opció…</option>
+                <option value="particular">Sóc particular (vull buscar/reparar)</option>
+                <option value="entitat">Sóc un Repair Café / Entitat Social</option>
+                <option value="empresa">Sóc una Empresa / Professional</option>
+                <option value="administracio">Represento un Ajuntament / Administració</option>
+              </select>
+              <p id="err-rol" class="mt-1 text-sm text-red-700" hidden></p>
+            </div>
+
+            <div>
+              <label class="flex items-start gap-3 text-sm">
+                <input id="f-privacitat" name="privacitat" type="checkbox" required aria-describedby="err-privacitat"
+                  class="mt-1 h-4 w-4 accent-emerald-deep">
+                <span>He llegit i accepto la <a href="#" class="underline text-emerald-deep">política de privacitat</a> i consento el tractament de les meves dades per a l'accés al pilot (RGPD). *</span>
+              </label>
+              <p id="err-privacitat" class="mt-1 text-sm text-red-700" hidden></p>
+            </div>
+
+            <button type="submit" class="w-full rounded-xl bg-amber-cta px-5 py-3.5 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition">
+              Vull formar part del projecte
+            </button>
+            <p id="form-status" class="text-sm text-ink/60 min-h-[1rem]" role="status"></p>
+          </form>
+
+          <!-- Estat d'èxit -->
+          <div id="success" class="text-center py-6" hidden tabindex="-1">
+            <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-mint/15 text-3xl" aria-hidden="true">🌿</div>
+            <span class="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-800">Circular Ambassador</span>
+            <h3 class="mt-3 text-2xl font-bold text-emerald-deep">Benvingut/da, <span id="success-name"></span>!</h3>
+            <p class="mt-2 text-ink/70">T'hem reservat la teva plaça al pilot. Quan s'obri el teu municipi, t'avisarem.</p>
+
+            <p class="mt-6 text-sm font-semibold text-ink/70">Comparteix-ho amb els teus veïns</p>
+            <div class="mt-3 flex flex-wrap justify-center gap-3">
+              <a id="share-wa" href="#" target="_blank" rel="noopener" class="rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90">WhatsApp</a>
+              <a id="share-tg" href="#" target="_blank" rel="noopener" class="rounded-xl bg-[#229ED9] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90">Telegram</a>
+            </div>
+            <button id="reset-form" type="button" class="mt-6 text-sm underline text-emerald-deep">Registrar una altra persona</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mx-auto max-w-3xl px-4 py-20 scroll-mt-20">
+      <div class="text-center">
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Dubtes habituals</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Preguntes freqüents</h2>
+      </div>
+
+      <div class="mt-10 space-y-3" data-accordion>
+        <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
+          <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-1" id="faq-b1">
+            Quina diferència hi ha amb Wallapop?
+            <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
+          <div id="faq-1" role="region" aria-labelledby="faq-b1" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Wallapop és compravenda entre particulars. Reviu digitalitza el circuit municipal i social: deixalleries, entitats d'inserció, Repair Cafès i empreses, amb traçabilitat oficial per a l'ARC i garantia en els productes reacondicionats.</p></div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
+          <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-2" id="faq-b2">
+            Quin cost té utilitzar la plataforma?
+            <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
+          <div id="faq-2" role="region" aria-labelledby="faq-b2" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Per a la ciutadania, l'accés és gratuït o de baix cost, i cada objecte té un preu d'estalvi o de recuperació clar. Per a administracions i empreses, el model és de subscripció. El detall dels preus es definirà durant el pilot.</p></div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
+          <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-3" id="faq-b3">
+            Com s'evita que la gent reservi i no reculli?
+            <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
+          <div id="faq-3" role="region" aria-labelledby="faq-b3" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Cada reserva té un termini de 72 hores. Si no es recull, l'objecte torna a estar disponible per a la comunitat. Estem dissenyant confirmacions i un sistema de reputació per reduir encara més els no-shows.</p></div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
+          <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-4" id="faq-b4">
+            Compleix amb la normativa de l'ARC i protecció de dades?
+            <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
+          <div id="faq-4" role="region" aria-labelledby="faq-b4" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Està dissenyat per als marcs del Decret Legislatiu 1/2009, la Llei 7/2022, la Directiva (UE) 2024/1799 i el RGPD/LOPDGDD. L'adreça exacta d'un particular mai es mostra al mapa, i el xat intern evita compartir telèfons o correus. La validació jurídica final forma part del pilot.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-ink text-white/80">
+    <div class="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-3">
+      <div>
+        <p class="flex items-center gap-2 text-lg font-bold text-white">
+          <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+            <g fill="#10B981"><circle cx="12" cy="11" r="5"/><circle cx="20" cy="11" r="5"/><circle cx="12" cy="19" r="5"/><circle cx="20" cy="19" r="5"/></g>
+          </svg>
+          Reviu
+        </p>
+        <p class="mt-3 text-sm">Economia circular real: menys residus, més comunitat.</p>
+      </div>
+
+      <div class="text-sm">
+        <p class="font-semibold text-white">Alineat amb</p>
+        <ul class="mt-3 space-y-2">
+          <li>Directiva (UE) 2024/1799 sobre el dret a reparar</li>
+          <li>ODS 11, 12 i 13 de l'Agenda 2030</li>
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <p class="font-semibold text-white">Enllaços</p>
+        <ul class="mt-3 space-y-2">
+          <li><a class="underline hover:text-white" href="https://github.com/jordidh/proto-upcycling-frontend" target="_blank" rel="noopener">Codi obert a GitHub</a></li>
+          <li><a class="underline hover:text-white" href="#">Política de privacitat</a></li>
+          <li><a class="underline hover:text-white" href="#">Avís legal</a></li>
+        </ul>
+        <p class="mt-6 text-xs text-white/50">© 2026 Reviu · Llicència MIT</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var STORAGE_KEY = 'reviu_waitlist';
+      var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+      function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+
+      // ---- Persistència segura (localStorage pot fallar en mode privat) ----
+      function readList() {
+        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { return []; }
+      }
+      function saveEntry(entry) {
+        try {
+          var list = readList();
+          list.push(entry);
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+          return true;
+        } catch (e) { return false; }
+      }
+
+      // ---- Comptadors animats en entrar a la pantalla ----
+      function animateCount(el) {
+        var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        if (reduceMotion) { el.textContent = target; return; }
+        var start = null, duration = 1400;
+        function step(ts) {
+          if (!start) start = ts;
+          var p = Math.min((ts - start) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var counters = $$('[data-count]');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCount(entry.target);
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.4 });
+        counters.forEach(function (c) { io.observe(c); });
+      } else {
+        counters.forEach(animateCount);
+      }
+
+      // ---- Previsualització: botó de reserva ----
+      var demoBtn = $('#demo-btn');
+      var demoMsg = $('#demo-msg');
+      demoBtn.addEventListener('click', function () {
+        if (demoBtn.getAttribute('data-state') === 'reserved') return;
+        demoBtn.setAttribute('data-state', 'reserved');
+        demoBtn.textContent = 'Ja reservat · codi REC-84920';
+        demoBtn.disabled = true;
+        demoBtn.classList.add('opacity-60', 'cursor-not-allowed');
+        demoMsg.textContent = 'Reserva simulada: recull-lo dins de 72 h.';
+      });
+
+      // ---- Formulari del hero: porta al registre amb el correu ----
+      var heroForm = $('#hero-form');
+      var heroEmail = $('#hero-email');
+      var heroError = $('#hero-error');
+      heroForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var value = heroEmail.value.trim();
+        if (!isValidEmail(value)) {
+          heroError.textContent = 'Introdueix un correu electrònic vàlid.';
+          heroError.hidden = false;
+          heroEmail.setAttribute('aria-invalid', 'true');
+          heroEmail.focus();
+          return;
+        }
+        heroError.hidden = true;
+        heroEmail.removeAttribute('aria-invalid');
+        $('#f-email').value = value;
+        window.location.hash = 'registre';
+        setTimeout(function () { $('#f-nom').focus({ preventScroll: true }); }, 500);
+      });
+
+      // ---- Pestanyes "Com funciona" ----
+      var tabs = $$('[role="tab"]');
+      tabs.forEach(function (tab, idx) {
+        tab.addEventListener('click', function () { activateTab(tab); });
+        tab.addEventListener('keydown', function (e) {
+          var next = null;
+          if (e.key === 'ArrowRight') next = tabs[(idx + 1) % tabs.length];
+          if (e.key === 'ArrowLeft') next = tabs[(idx - 1 + tabs.length) % tabs.length];
+          if (next) { e.preventDefault(); next.focus(); activateTab(next); }
+        });
+      });
+      function activateTab(selected) {
+        tabs.forEach(function (t) {
+          var on = t === selected;
+          t.setAttribute('aria-selected', on ? 'true' : 'false');
+          t.tabIndex = on ? 0 : -1;
+          t.classList.toggle('bg-white', on);
+          t.classList.toggle('shadow', on);
+          t.classList.toggle('text-emerald-deep', on);
+          t.classList.toggle('text-ink/60', !on);
+          var panel = document.getElementById(t.getAttribute('aria-controls'));
+          panel.hidden = !on;
+        });
+      }
+      activateTab(tabs[0]);
+
+      // ---- Acordió FAQ ----
+      $$('.acc-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var open = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+          var panel = document.getElementById(btn.getAttribute('aria-controls'));
+          panel.classList.toggle('grid-rows-[1fr]', !open);
+          panel.classList.toggle('grid-rows-[0fr]', open);
+          btn.querySelector('.acc-icon').textContent = open ? '+' : '−';
+        });
+      });
+
+      // ---- Validació i enviament del formulari ----
+      var form = $('#waitlist-form');
+      var fields = {
+        nom:        { el: $('#f-nom'),        err: $('#err-nom'),        check: function (v) { return v.length >= 2 ? '' : 'Escriu el teu nom o el de l\'organització.'; } },
+        email:      { el: $('#f-email'),      err: $('#err-email'),      check: function (v) { return isValidEmail(v) ? '' : 'Introdueix un correu electrònic vàlid.'; } },
+        municipi:   { el: $('#f-municipi'),   err: $('#err-municipi'),   check: function (v) { return v.length >= 2 ? '' : 'Indica el municipi o el codi postal.'; } },
+        rol:        { el: $('#f-rol'),        err: $('#err-rol'),        check: function (v) { return v ? '' : 'Tria el teu perfil.'; } },
+        privacitat: { el: $('#f-privacitat'), err: $('#err-privacitat'), check: function (_v, el) { return el.checked ? '' : 'Cal acceptar la política de privacitat.'; } }
+      };
+
+      function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+      function validateField(key) {
+        var f = fields[key];
+        var value = f.el.type === 'checkbox' ? '' : f.el.value.trim();
+        var msg = f.check(value, f.el);
+        f.err.textContent = msg;
+        f.err.hidden = !msg;
+        if (msg) f.el.setAttribute('aria-invalid', 'true');
+        else f.el.removeAttribute('aria-invalid');
+        return !msg;
+      }
+
+      Object.keys(fields).forEach(function (key) {
+        var evt = fields[key].el.type === 'checkbox' || fields[key].el.tagName === 'SELECT' ? 'change' : 'blur';
+        fields[key].el.addEventListener(evt, function () { if (fields[key].el.getAttribute('aria-invalid') || evt === 'change') validateField(key); });
+        fields[key].el.addEventListener('input', function () { if (fields[key].el.getAttribute('aria-invalid')) validateField(key); });
+      });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var ok = true, firstBad = null;
+        Object.keys(fields).forEach(function (key) {
+          if (!validateField(key)) { ok = false; if (!firstBad) firstBad = fields[key].el; }
+        });
+        if (!ok) {
+          $('#form-status').textContent = 'Revisa els camps marcats abans d\'enviar.';
+          firstBad.focus();
+          return;
+        }
+
+        var entry = {
+          nom: fields.nom.el.value.trim(),
+          email: fields.email.el.value.trim(),
+          municipi: fields.municipi.el.value.trim(),
+          rol: fields.rol.el.value,
+          data: new Date().toISOString()
+        };
+        saveEntry(entry); // si localStorage no està disponible, el flux d'èxit es mostra igualment
+        showSuccess(entry.nom);
+      });
+
+      function showSuccess(name) {
+        form.hidden = true;
+        var success = $('#success');
+        $('#success-name').textContent = name;
+        var text = 'M\'acabo d\'apuntar al pilot de Reviu, la plataforma d\'economia circular per reutilitzar objectes del meu municipi. Apunta\'t tu també!';
+        var url = 'https://github.com/jordidh/proto-upcycling-frontend';
+        $('#share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+        $('#share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+        success.hidden = false;
+        success.focus();
+      }
+
+      $('#reset-form').addEventListener('click', function () {
+        form.reset();
+        form.hidden = false;
+        $('#success').hidden = true;
+        $('#form-status').textContent = '';
+        $$('[aria-invalid]').forEach(function (el) { el.removeAttribute('aria-invalid'); });
+        $$('#waitlist-form p[id^="err-"]').forEach(function (p) { p.hidden = true; });
+        $('#f-nom').focus();
+      });
+    })();
+  </script>
+</body>
+</html>
