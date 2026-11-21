@@ -122,6 +122,13 @@ MIT; see `LICENSE`.
 
 ## Changelog
 
+### v0.2.0 — 2026-11-21
+
+**Added**
+- Video section on the landing page with two scenario videos (reuse of an object, municipal task).
+- Sustainable Development Goals 11, 12 and 13 explained in the local administration card of the landing page, with a note on the WHO's position on reuse and repair.
+- `videos/` folder for MP4 files used by the site.
+
 ### v0.1.1 — 2026-11-21
 
 **Changed**
