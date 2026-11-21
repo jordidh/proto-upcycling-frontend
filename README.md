@@ -117,3 +117,18 @@ Reservations are stored in the browser and expire after 72 hours.
 ## License
 
 MIT; see `LICENSE`.
+
+---
+
+## Changelog
+
+### v0.1.1 — 2026-11-21
+
+**Changed**
+- Added `wrangler.jsonc` so the site can be deployed and previewed with Cloudflare Wrangler (`npx wrangler preview` needs its `previews` block).
+
+### v0.1.0 — 2026-11-21
+
+**Added**
+- Catalan landing page for the Reviu pilot (`landing/index.html`): hero with an interactive app preview, impact figures sourced from the project proposals, problem vs. solution comparison, tabbed "How it works" flow, benefits by profile, sign-up form with validation and a success state, FAQ accordion and footer.
+- Pilot waitlist sign-up saved in the browser's `localStorage`.
