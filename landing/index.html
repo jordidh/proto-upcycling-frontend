@@ -33,12 +33,12 @@
 </head>
 <body class="bg-cream text-ink font-sans antialiased">
 
-  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-md focus:shadow">Salta al contingut</a>
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[60] focus:bg-white focus:px-3 focus:py-2 focus:rounded-md focus:shadow" data-i18n="skip">Salta al contingut</a>
 
   <!-- NAVBAR -->
   <header class="sticky top-0 z-50 bg-cream/90 backdrop-blur border-b border-emerald-deep/10">
     <nav class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-4" aria-label="Navegació principal">
-      <a href="#top" class="flex items-center gap-2 font-bold text-emerald-deep text-lg" aria-label="Reviu, inici">
+      <a href="#top" class="flex items-center gap-2 font-bold text-emerald-deep text-lg" aria-label="Reviu">
         <!-- Logo: trèvol de 4 fulles amb fletxes circulars -->
         <svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
           <g fill="#10B981">
@@ -53,16 +53,24 @@
         Reviu
       </a>
 
-      <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-ink/80">
-        <li><a class="hover:text-emerald-deep" href="#com-funciona">Com funciona</a></li>
-        <li><a class="hover:text-emerald-deep" href="#per-a-qui">Per a qui és</a></li>
-        <li><a class="hover:text-emerald-deep" href="#impacte">Impacte</a></li>
-        <li><a class="hover:text-emerald-deep" href="#faq">Preguntes freqüents</a></li>
+      <ul class="hidden lg:flex items-center gap-6 text-sm font-medium text-ink/80">
+        <li><a class="hover:text-emerald-deep" href="#com-funciona" data-i18n="nav_how">Com funciona</a></li>
+        <li><a class="hover:text-emerald-deep" href="#per-a-qui" data-i18n="nav_who">Per a qui és</a></li>
+        <li><a class="hover:text-emerald-deep" href="#impacte" data-i18n="nav_impact">Impacte</a></li>
+        <li><a class="hover:text-emerald-deep" href="#faq" data-i18n="nav_faq">Preguntes freqüents</a></li>
       </ul>
 
-      <a href="#registre" class="inline-flex items-center rounded-full bg-amber-cta px-4 py-2 text-sm font-semibold text-white shadow hover:bg-amber-ctaDark transition">
-        Vull participar-hi
-      </a>
+      <div class="flex items-center gap-3">
+        <label class="sr-only" for="lang-select" data-i18n="lang_label">Idioma</label>
+        <select id="lang-select" class="rounded-lg border border-emerald-deep/20 bg-white px-2 py-1.5 text-sm font-medium text-emerald-deep focus:outline-none focus:border-emerald-mint">
+          <option value="ca">Català</option>
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+        <a href="#registre" class="hidden sm:inline-flex items-center rounded-full bg-amber-cta px-4 py-2 text-sm font-semibold text-white shadow hover:bg-amber-ctaDark transition" data-i18n="nav_cta">
+          Vull participar-hi
+        </a>
+      </div>
     </nav>
   </header>
 
@@ -75,33 +83,33 @@
 
         <div>
           <p class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-semibold text-emerald-deep ring-1 ring-emerald-deep/15">
-            <span aria-hidden="true">🌱</span> Economia circular real al teu municipi · Prova Pilot 2026
+            <span aria-hidden="true">🌱</span> <span data-i18n="hero_badge">Economia circular real al teu municipi · Prova Pilot 2026</span>
           </p>
-          <h1 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-emerald-deep">
+          <h1 class="mt-5 text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-emerald-deep" data-i18n="hero_h1">
             Dona una segona vida als objectes del teu barri. Estalvia diners, evita residus.
           </h1>
-          <p class="mt-5 text-lg text-ink/75 max-w-xl">
+          <p class="mt-5 text-lg text-ink/75 max-w-xl" data-i18n="hero_lead">
             Connectem deixalleries, Repair Cafès, entitats socials i veïns en un sol lloc: trobes mobles, peces i eines reutilitzables i les reserves en dos minuts, amb garantia i traçabilitat oficial.
           </p>
 
           <form id="hero-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl" novalidate>
-            <label class="sr-only" for="hero-email">Correu electrònic</label>
-            <input id="hero-email" type="email" required autocomplete="email" placeholder="El teu correu electrònic"
+            <label class="sr-only" for="hero-email" data-i18n="hero_email_label">Correu electrònic</label>
+            <input id="hero-email" type="email" required autocomplete="email" data-i18n-ph="hero_ph" placeholder="El teu correu electrònic"
               class="flex-1 rounded-xl border border-emerald-deep/20 bg-white px-4 py-3 text-base focus:border-emerald-mint focus:outline-none">
-            <button type="submit" class="rounded-xl bg-amber-cta px-5 py-3 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition whitespace-nowrap">
+            <button type="submit" class="rounded-xl bg-amber-cta px-5 py-3 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition whitespace-nowrap" data-i18n="hero_btn">
               Reserva la teva plaça al pilot
             </button>
           </form>
           <p id="hero-error" class="mt-2 text-sm text-red-700" role="alert" hidden></p>
-          <p class="mt-3 text-sm text-ink/60">Gratuït · Sense compromís · Accés prioritari</p>
+          <p class="mt-3 text-sm text-ink/60" data-i18n="hero_trust">Gratuït · Sense compromís · Accés prioritari</p>
         </div>
 
         <!-- Previsualització interactiva de l'app -->
         <div class="relative">
           <div class="rounded-3xl bg-white p-5 md:p-6 ring-soft ring-1 ring-emerald-deep/10">
             <div class="flex items-center justify-between text-xs text-ink/60 mb-4">
-              <span class="font-semibold text-emerald-deep">Reviu · Catàleg</span>
-              <span class="rounded-full bg-emerald-mint/15 px-2 py-0.5 text-emerald-deep font-medium">3 objectes a prop</span>
+              <span class="font-semibold text-emerald-deep" data-i18n="demo_head">Reviu · Catàleg</span>
+              <span class="rounded-full bg-emerald-mint/15 px-2 py-0.5 text-emerald-deep font-medium" data-i18n="demo_count">3 objectes a prop</span>
             </div>
 
             <article class="rounded-2xl border border-emerald-deep/10 overflow-hidden">
@@ -118,25 +126,25 @@
               <div class="p-4">
                 <div class="flex items-start justify-between gap-3">
                   <div>
-                    <h2 class="font-semibold text-ink">Taula de fusta massissa</h2>
+                    <h2 class="font-semibold text-ink" data-i18n="demo_title">Taula de fusta massissa</h2>
                     <p class="text-sm text-ink/60">Punt Verd Gràcia · Barcelona - Gràcia</p>
                   </div>
                   <p class="text-lg font-bold text-emerald-deep" id="demo-price">0 €</p>
                 </div>
                 <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                  <span class="rounded-full bg-emerald-deep/10 px-2.5 py-1 text-emerald-deep font-medium">Funcional</span>
-                  <span class="rounded-full bg-emerald-mint/15 px-2.5 py-1 text-emerald-deep font-medium">Estalvi: 24 kg CO₂</span>
-                  <span class="rounded-full bg-amber-100 px-2.5 py-1 text-amber-800 font-medium">Garantia 1 any</span>
+                  <span class="rounded-full bg-emerald-deep/10 px-2.5 py-1 text-emerald-deep font-medium" data-i18n="demo_tag_func">Funcional</span>
+                  <span class="rounded-full bg-emerald-mint/15 px-2.5 py-1 text-emerald-deep font-medium" data-i18n="demo_tag_co2">Estalvi: 24 kg CO₂</span>
+                  <span class="rounded-full bg-amber-100 px-2.5 py-1 text-amber-800 font-medium" data-i18n="demo_tag_warranty">Garantia 1 any</span>
                 </div>
                 <button id="demo-btn" type="button" data-state="free"
-                  class="mt-4 w-full rounded-xl bg-emerald-deep px-4 py-2.5 font-semibold text-white hover:bg-emerald-deep/90 transition">
+                  class="mt-4 w-full rounded-xl bg-emerald-deep px-4 py-2.5 font-semibold text-white hover:bg-emerald-deep/90 transition" data-i18n="demo_btn">
                   Reservar aquest objecte
                 </button>
                 <p id="demo-msg" class="mt-2 text-xs text-ink/60 min-h-[1rem]" aria-live="polite"></p>
               </div>
             </article>
           </div>
-          <p class="mt-3 text-xs text-ink/50 text-center">Previsualització interactiva del prototip. Dades d'exemple.</p>
+          <p class="mt-3 text-xs text-ink/50 text-center" data-i18n="demo_caption">Previsualització interactiva del prototip. Dades d'exemple.</p>
         </div>
       </div>
     </section>
@@ -144,62 +152,62 @@
     <!-- SOCIAL PROOF / IMPACTE -->
     <section id="impacte" class="bg-white border-y border-emerald-deep/10 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-4 py-14">
-        <p class="text-center text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per què ara</p>
-        <h2 class="mt-2 text-center text-3xl font-bold text-emerald-deep">Les xifres que ens han motivat</h2>
+        <p class="text-center text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="impact_kicker">Per què ara</p>
+        <h2 class="mt-2 text-center text-3xl font-bold text-emerald-deep" data-i18n="impact_title">Les xifres que ens han motivat</h2>
 
         <dl class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div class="rounded-2xl bg-cream p-6">
             <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="75">0</span>%</dd>
-            <dt class="mt-2 text-sm text-ink/70">de la població espanyola ha comprat productes de segona mà</dt>
+            <dt class="mt-2 text-sm text-ink/70" data-i18n="stat1">de la població espanyola ha comprat productes de segona mà</dt>
           </div>
           <div class="rounded-2xl bg-cream p-6">
             <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="15">0</span>–25%</dd>
-            <dt class="mt-2 text-sm text-ink/70">dels mobles de les deixalleries podrien tornar a usar-se</dt>
+            <dt class="mt-2 text-sm text-ink/70" data-i18n="stat2">dels mobles de les deixalleries podrien tornar a usar-se</dt>
           </div>
           <div class="rounded-2xl bg-cream p-6">
             <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="3">0</span>%</dd>
-            <dt class="mt-2 text-sm text-ink/70">com a màxim es prepara realment per a la reutilització</dt>
+            <dt class="mt-2 text-sm text-ink/70" data-i18n="stat3">com a màxim es prepara realment per a la reutilització</dt>
           </div>
           <div class="rounded-2xl bg-cream p-6">
             <dd class="text-4xl md:text-5xl font-extrabold text-emerald-deep"><span data-count="40">0</span>%+</dd>
-            <dt class="mt-2 text-sm text-ink/70">de recuperació de petits aparells quan les entitats hi accedeixen a temps</dt>
+            <dt class="mt-2 text-sm text-ink/70" data-i18n="stat4">de recuperació de petits aparells quan les entitats hi accedeixen a temps</dt>
           </div>
         </dl>
 
-        <p class="mt-8 text-center text-sm text-ink/70 max-w-2xl mx-auto">
+        <p class="mt-8 text-center text-sm text-ink/70 max-w-2xl mx-auto" data-i18n="impact_ecosystem">
           Dissenyat per col·laborar amb Deixalleries Municipals, Repair Cafès, Entitats Socials i Ajuntaments.
         </p>
-        <p class="mt-3 text-center text-xs text-ink/50">Fonts: OCU (2026), AERESS (balanç social 2025) i estimacions de caracterització de deixalleries recollides a la proposta de valor de Reviu.</p>
+        <p class="mt-3 text-center text-xs text-ink/50" data-i18n="impact_sources">Fonts: OCU (2026), AERESS (balanç social 2025) i estimacions de caracterització de deixalleries recollides a la proposta de valor de Reviu.</p>
       </div>
     </section>
 
     <!-- PROBLEMA VS SOLUCIÓ -->
     <section class="mx-auto max-w-6xl px-4 py-20">
       <div class="max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per què Reviu?</p>
-        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Ara mateix, la major part del que es podria reutilitzar acaba triturat</h2>
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="prob_kicker">Per què Reviu?</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep" data-i18n="prob_title">Ara mateix, la major part del que es podria reutilitzar acaba triturat</h2>
       </div>
 
       <div class="mt-10 grid gap-6 md:grid-cols-2">
         <div class="rounded-3xl bg-white p-7 ring-1 ring-red-900/10">
-          <h3 class="text-lg font-bold text-red-800 flex items-center gap-2"><span aria-hidden="true">✕</span> Avui</h3>
+          <h3 class="text-lg font-bold text-red-800 flex items-center gap-2"><span aria-hidden="true">✕</span> <span data-i18n="prob_bad_h">Avui</span></h3>
           <ul class="mt-5 space-y-4 text-ink/80">
-            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Només un 1–3% dels mobles dipositats es prepara per a la reutilització.</li>
-            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> El transport (40–80 €) sovint costa més que el valor del moble.</li>
-            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Els aparells es malmeten a la intempèrie o els roben el coure i el motor.</li>
-            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Sense garantia ni certificat elèctric, moltes entitats no els poden vendre.</li>
-            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> Els tràmits amb l'ARC són lents i manuals.</li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> <span data-i18n="prob_bad_1">Només un 1–3% dels mobles dipositats es prepara per a la reutilització.</span></li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> <span data-i18n="prob_bad_2">El transport (40–80 €) sovint costa més que el valor del moble.</span></li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> <span data-i18n="prob_bad_3">Els aparells es malmeten a la intempèrie o els roben el coure i el motor.</span></li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> <span data-i18n="prob_bad_4">Sense garantia ni certificat elèctric, moltes entitats no els poden vendre.</span></li>
+            <li class="flex gap-3"><span class="text-red-700" aria-hidden="true">•</span> <span data-i18n="prob_bad_5">Els tràmits amb l'ARC són lents i manuals.</span></li>
           </ul>
         </div>
 
         <div class="rounded-3xl bg-emerald-deep p-7 text-white shadow-xl">
-          <h3 class="text-lg font-bold text-emerald-mint flex items-center gap-2"><span aria-hidden="true">✓</span> Amb Reviu</h3>
+          <h3 class="text-lg font-bold text-emerald-mint flex items-center gap-2"><span aria-hidden="true">✓</span> <span data-i18n="prob_good_h">Amb Reviu</span></h3>
           <ul class="mt-5 space-y-4 text-white/90">
-            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Les deixalleries i entitats publiquen l'objecte en segons, i el tallers el veuen a l'instant.</li>
-            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> La cerca per proximitat et mostra el que tens a prop, sense exposar la teva adreça.</li>
-            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Cada objecte té estat, garantia i preu clars abans de reservar-lo.</li>
-            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Els estats de traçabilitat per a l'ARC es registren automàticament.</li>
-            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> Reserves amb termini de 72 h: si no es recull, torna a estar disponible.</li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> <span data-i18n="prob_good_1">Les deixalleries i entitats publiquen l'objecte en segons, i els tallers el veuen a l'instant.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> <span data-i18n="prob_good_2">La cerca per proximitat et mostra el que tens a prop, sense exposar la teva adreça.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> <span data-i18n="prob_good_3">Cada objecte té estat, garantia i preu clars abans de reservar-lo.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> <span data-i18n="prob_good_4">Els estats de traçabilitat per a l'ARC es registren automàticament.</span></li>
+            <li class="flex gap-3"><span class="text-emerald-mint" aria-hidden="true">•</span> <span data-i18n="prob_good_5">Reserves amb termini de 72 h: si no es recull, torna a estar disponible.</span></li>
           </ul>
         </div>
       </div>
@@ -209,18 +217,18 @@
     <section id="com-funciona" class="bg-white border-y border-emerald-deep/10 scroll-mt-20">
       <div class="mx-auto max-w-6xl px-4 py-20">
         <div class="max-w-2xl">
-          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Com funciona</p>
-          <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Tres passos, segons qui ets</h2>
+          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="how_kicker">Com funciona</p>
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep" data-i18n="how_title">Tres passos, segons qui ets</h2>
         </div>
 
         <div class="mt-10" data-tabs>
-          <div role="tablist" aria-label="Tipus d'usuari" class="inline-flex flex-col sm:flex-row gap-2 rounded-2xl bg-cream p-1.5 ring-1 ring-emerald-deep/10 w-full sm:w-auto">
+          <div role="tablist" aria-label="Tipus d'usuari" data-i18n-aria="how_tabs_aria" class="inline-flex flex-col sm:flex-row gap-2 rounded-2xl bg-cream p-1.5 ring-1 ring-emerald-deep/10 w-full sm:w-auto">
             <button id="tab-a" role="tab" aria-selected="true" aria-controls="panel-a" type="button"
-              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center">
+              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center" data-i18n="tab_a">
               Ciutadania i reparadors
             </button>
             <button id="tab-b" role="tab" aria-selected="false" aria-controls="panel-b" tabindex="-1" type="button"
-              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center">
+              class="tab-btn rounded-xl px-5 py-2.5 text-sm font-semibold transition text-left sm:text-center" data-i18n="tab_b">
               Entitats, empreses i administració
             </button>
           </div>
@@ -228,36 +236,36 @@
           <div id="panel-a" role="tabpanel" aria-labelledby="tab-a" class="tab-panel mt-8 grid gap-5 md:grid-cols-3">
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">1</span>
-              <h3 class="mt-4 font-bold text-lg">Cerca a prop de casa</h3>
-              <p class="mt-2 text-ink/70">Filtra per categoria, origen i estat. Veu què hi ha al teu barri o al teu municipi.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="a1_t">Cerca a prop de casa</h3>
+              <p class="mt-2 text-ink/70" data-i18n="a1_d">Filtra per categoria, origen i estat. Veu què hi ha al teu barri o al teu municipi.</p>
             </div>
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">2</span>
-              <h3 class="mt-4 font-bold text-lg">Reserva amb codi</h3>
-              <p class="mt-2 text-ink/70">Reserva en dos minuts i rep un codi de reserva (per exemple REC-84920) per recollir l'objecte.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="a2_t">Reserva amb codi</h3>
+              <p class="mt-2 text-ink/70" data-i18n="a2_d">Reserva en dos minuts i rep un codi de reserva (per exemple REC-84920) per recollir l'objecte.</p>
             </div>
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">3</span>
-              <h3 class="mt-4 font-bold text-lg">Recull i estalvia</h3>
-              <p class="mt-2 text-ink/70">Recull l'objecte dins de 72 hores amb la garantia indicada. Tu també estalvies CO₂.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="a3_t">Recull i estalvia</h3>
+              <p class="mt-2 text-ink/70" data-i18n="a3_d">Recull l'objecte dins de 72 hores amb la garantia indicada. Tu també estalvies CO₂.</p>
             </div>
           </div>
 
           <div id="panel-b" role="tabpanel" aria-labelledby="tab-b" class="tab-panel mt-8 grid gap-5 md:grid-cols-3" hidden>
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">1</span>
-              <h3 class="mt-4 font-bold text-lg">Publica en 30 segons</h3>
-              <p class="mt-2 text-ink/70">Puja un objecte o un lot des del mòbil, o carrega l'inventari amb un fitxer CSV o per API.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="b1_t">Publica en 30 segons</h3>
+              <p class="mt-2 text-ink/70" data-i18n="b1_d">Puja un objecte o un lot des del mòbil, o carrega l'inventari amb un fitxer CSV o per API.</p>
             </div>
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">2</span>
-              <h3 class="mt-4 font-bold text-lg">Geolocalització i alertes</h3>
-              <p class="mt-2 text-ink/70">La plataforma localitza el recurs i avisa automàticament tallers, entitats i professionals acreditats propers.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="b2_t">Geolocalització i alertes</h3>
+              <p class="mt-2 text-ink/70" data-i18n="b2_d">La plataforma localitza el recurs i avisa automàticament tallers, entitats i professionals acreditats propers.</p>
             </div>
             <div class="step-card rounded-2xl bg-cream p-6 ring-1 ring-emerald-deep/10">
               <span class="grid h-10 w-10 place-items-center rounded-full bg-emerald-deep text-white font-bold">3</span>
-              <h3 class="mt-4 font-bold text-lg">Traçabilitat i certificat</h3>
-              <p class="mt-2 text-ink/70">Estats oficials per a l'ARC, mètriques de CO₂ i kg desviats i certificat d'impacte, sense paperassa.</p>
+              <h3 class="mt-4 font-bold text-lg" data-i18n="b3_t">Traçabilitat i certificat</h3>
+              <p class="mt-2 text-ink/70" data-i18n="b3_d">Estats oficials per a l'ARC, mètriques de CO₂ i kg desviats i certificat d'impacte, sense paperassa.</p>
             </div>
           </div>
         </div>
@@ -267,36 +275,36 @@
     <!-- PER A QUI ÉS -->
     <section id="per-a-qui" class="mx-auto max-w-6xl px-4 py-20 scroll-mt-20">
       <div class="max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Per a qui és</p>
-        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Guanya tothom qui hi participa</h2>
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="who_kicker">Per a qui és</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep" data-i18n="who_title">Guanya tothom qui hi participa</h2>
       </div>
 
       <div class="mt-10 grid gap-6 sm:grid-cols-2">
         <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
           <div class="text-3xl" aria-hidden="true">🛋️</div>
-          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Ciutadania</h3>
-          <p class="mt-2 text-ink/75">Mobles, peces i eines a cost zero o simbòlic, amb garantia. Cerca per barri o codi postal sense mostrar mai la teva adreça exacta.</p>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep" data-i18n="who1_t">Ciutadania</h3>
+          <p class="mt-2 text-ink/75" data-i18n="who1_d">Mobles, peces i eines a cost zero o simbòlic, amb garantia. Cerca per barri o codi postal sense mostrar mai la teva adreça exacta.</p>
         </article>
         <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
           <div class="text-3xl" aria-hidden="true">🔧</div>
-          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Repair Cafès i entitats socials</h3>
-          <p class="mt-2 text-ink/75">Accés als materials abans que es malmetin a la intempèrie, amb circuits clars de recollida i un registre per certificar la seguretat elèctrica. Més inserció sociolaboral.</p>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep" data-i18n="who2_t">Repair Cafès i entitats socials</h3>
+          <p class="mt-2 text-ink/75" data-i18n="who2_d">Accés als materials abans que es malmetin a la intempèrie, amb circuits clars de recollida i un registre per certificar la seguretat elèctrica. Més inserció sociolaboral.</p>
         </article>
         <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
           <div class="text-3xl" aria-hidden="true">🏢</div>
-          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Empreses i professionals</h3>
-          <p class="mt-2 text-ink/75">Dona sortida legal i àgil als excedents i al mobiliari en desús. Els professionals acreditats poden accedir a lots de fusta municipal amb els requisits LPRL validats.</p>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep" data-i18n="who3_t">Empreses i professionals</h3>
+          <p class="mt-2 text-ink/75" data-i18n="who3_d">Dona sortida legal i àgil als excedents i al mobiliari en desús. Els professionals acreditats poden accedir a lots de fusta municipal amb els requisits LPRL validats.</p>
         </article>
         <article class="rounded-3xl bg-white p-7 ring-1 ring-emerald-deep/10 hover:-translate-y-1 hover:shadow-lg transition">
           <div class="text-3xl" aria-hidden="true">🏛️</div>
-          <h3 class="mt-3 text-xl font-bold text-emerald-deep">Administració local</h3>
-          <p class="mt-2 text-ink/75">Compleix les metes de prevenció de residus i genera automàticament informes de kg desviats, CO₂ estalviat i dades exportables en JSON o CSV per a auditories ODS.</p>
+          <h3 class="mt-3 text-xl font-bold text-emerald-deep" data-i18n="who4_t">Administració local</h3>
+          <p class="mt-2 text-ink/75" data-i18n="who4_d">Compleix les metes de prevenció de residus i genera automàticament informes de kg desviats, CO₂ estalviat i dades exportables en JSON o CSV per a auditories ODS.</p>
           <ul class="mt-5 space-y-3 text-sm text-ink/80 border-t border-emerald-deep/10 pt-5">
-            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 11</span> <span><strong>Ciutats i comunitats sostenibles.</strong> Redueix l'impacte ambiental per càpita i reforça els Repair Cafès i les deixalleries de proximitat com a espais comunitaris.</span></li>
-            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 12</span> <span><strong>Producció i consum responsables.</strong> Impulsa la jerarquia de residus: primer reutilitzar, després reparar i només al final reciclar (metes 12.2, 12.4 i 12.5).</span></li>
-            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 13</span> <span><strong>Acció pel clima.</strong> Cada objecte reutilitzat evita l'energia i les emissions de fabricar-ne un de nou, i Reviu en calcula els kg de CO₂ estalviats.</span></li>
+            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 11</span> <span data-i18n="ods11"><strong>Ciutats i comunitats sostenibles.</strong> Redueix l'impacte ambiental per càpita i reforça els Repair Cafès i les deixalleries de proximitat com a espais comunitaris.</span></li>
+            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 12</span> <span data-i18n="ods12"><strong>Producció i consum responsables.</strong> Impulsa la jerarquia de residus: primer reutilitzar, després reparar i només al final reciclar (metes 12.2, 12.4 i 12.5).</span></li>
+            <li class="flex gap-3"><span class="shrink-0 rounded-md bg-emerald-deep px-2 py-0.5 text-xs font-bold text-white h-fit">ODS 13</span> <span data-i18n="ods13"><strong>Acció pel clima.</strong> Cada objecte reutilitzat evita l'energia i les emissions de fabricar-ne un de nou, i Reviu en calcula els kg de CO₂ estalviats.</span></li>
           </ul>
-          <p class="mt-4 text-xs text-ink/60">Segons l'OMS, allargar la vida útil dels aparells redueix residus electrònics tòxics i la contaminació de l'aire associada a la fabricació de productes nous.</p>
+          <p class="mt-4 text-xs text-ink/60" data-i18n="ods_who">Segons l'OMS, allargar la vida útil dels aparells redueix residus electrònics tòxics i la contaminació de l'aire associada a la fabricació de productes nous.</p>
         </article>
       </div>
     </section>
@@ -304,8 +312,8 @@
     <!-- VÍDEOS -->
     <section id="videos" class="mx-auto max-w-6xl px-4 py-20 scroll-mt-20">
       <div class="max-w-2xl">
-        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Mira-ho en acció</p>
-        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Com es veu Reviu en el dia a dia</h2>
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="vid_kicker">Mira-ho en acció</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep" data-i18n="vid_title">Com es veu Reviu en el dia a dia</h2>
       </div>
 
       <div class="mt-10 grid gap-6 md:grid-cols-2">
@@ -313,11 +321,11 @@
           <video class="w-full rounded-2xl bg-black" controls preload="metadata" playsinline
             aria-describedby="video-1-desc">
             <source src="../videos/Upcycling%20-%20Escenari%201.mp4" type="video/mp4">
-            El teu navegador no pot reproduir aquest vídeo.
+            <span data-i18n="vid_fallback">El teu navegador no pot reproduir aquest vídeo.</span>
           </video>
           <figcaption id="video-1-desc" class="mt-4 px-2 pb-2">
-            <h3 class="font-bold text-emerald-deep">Escenari 1: reutilitzar un objecte</h3>
-            <p class="mt-1 text-sm text-ink/70">Un objecte en bon estat arriba a la deixalleria, es publica a Reviu i un taller el repara i el torna a posar a la venda amb garantia.</p>
+            <h3 class="font-bold text-emerald-deep" data-i18n="vid1_t">Escenari 1: reutilitzar un objecte</h3>
+            <p class="mt-1 text-sm text-ink/70" data-i18n="vid1_d">Un objecte en bon estat arriba a la deixalleria, es publica a Reviu i un taller el repara i el torna a posar a la venda amb garantia.</p>
           </figcaption>
         </figure>
 
@@ -325,11 +333,11 @@
           <video class="w-full rounded-2xl bg-black" controls preload="metadata" playsinline
             aria-describedby="video-2-desc">
             <source src="../videos/Upcycling%20-%20Escenari%202.mp4" type="video/mp4">
-            El teu navegador no pot reproduir aquest vídeo.
+            <span data-i18n="vid_fallback">El teu navegador no pot reproduir aquest vídeo.</span>
           </video>
           <figcaption id="video-2-desc" class="mt-4 px-2 pb-2">
-            <h3 class="font-bold text-emerald-deep">Escenari 2: encàrrec municipal</h3>
-            <p class="mt-1 text-sm text-ink/70">Un ajuntament publica una tasca, com la retirada d'un arbre caigut, i professionals acreditats l'accepten en un clic.</p>
+            <h3 class="font-bold text-emerald-deep" data-i18n="vid2_t">Escenari 2: encàrrec municipal</h3>
+            <p class="mt-1 text-sm text-ink/70" data-i18n="vid2_d">Un ajuntament publica una tasca, com la retirada d'un arbre caigut, i professionals acreditats l'accepten en un clic.</p>
           </figcaption>
         </figure>
       </div>
@@ -339,51 +347,51 @@
     <section id="registre" class="bg-emerald-deep text-white scroll-mt-20">
       <div class="mx-auto max-w-6xl px-4 py-20 grid gap-12 lg:grid-cols-2 lg:items-start">
         <div>
-          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Pilot 2026 · Accés prioritari</p>
-          <h2 class="mt-2 text-3xl md:text-4xl font-bold">Uneix-te a la comunitat que transforma residus en recursos</h2>
-          <p class="mt-5 text-white/80 max-w-md">Apunta't al llistat d'espera del pilot. T'avisarem quan el teu municipi o la teva entitat pugui començar, i tindràs accés prioritari a les primeres reserves.</p>
+          <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="reg_kicker">Pilot 2026 · Accés prioritari</p>
+          <h2 class="mt-2 text-3xl md:text-4xl font-bold" data-i18n="reg_title">Uneix-te a la comunitat que transforma residus en recursos</h2>
+          <p class="mt-5 text-white/80 max-w-md" data-i18n="reg_lead">Apunta't al llistat d'espera del pilot. T'avisarem quan el teu municipi o la teva entitat pugui començar, i tindràs accés prioritari a les primeres reserves.</p>
           <ul class="mt-6 space-y-2 text-white/80 text-sm">
-            <li>✓ Gratuït durant el pilot</li>
-            <li>✓ Sense compromís</li>
-            <li>✓ Les teves dades es tracten segons el RGPD</li>
+            <li data-i18n="reg_b1">✓ Gratuït durant el pilot</li>
+            <li data-i18n="reg_b2">✓ Sense compromís</li>
+            <li data-i18n="reg_b3">✓ Les teves dades es tracten segons el RGPD</li>
           </ul>
         </div>
 
         <div class="rounded-3xl bg-white text-ink p-6 md:p-8 shadow-2xl">
           <!-- Formulari -->
           <form id="waitlist-form" novalidate class="space-y-5" aria-describedby="form-hint">
-            <p id="form-hint" class="text-sm text-ink/60">Els camps amb * són obligatoris.</p>
+            <p id="form-hint" class="text-sm text-ink/60" data-i18n="f_hint">Els camps amb * són obligatoris.</p>
 
             <div>
-              <label for="f-nom" class="block text-sm font-semibold">Nom o organització *</label>
+              <label for="f-nom" class="block text-sm font-semibold"><span data-i18n="f_nom">Nom o organització</span> *</label>
               <input id="f-nom" name="nom" type="text" required autocomplete="name" aria-describedby="err-nom"
                 class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
               <p id="err-nom" class="mt-1 text-sm text-red-700" hidden></p>
             </div>
 
             <div>
-              <label for="f-email" class="block text-sm font-semibold">Correu electrònic *</label>
+              <label for="f-email" class="block text-sm font-semibold"><span data-i18n="f_email">Correu electrònic</span> *</label>
               <input id="f-email" name="email" type="email" required autocomplete="email" aria-describedby="err-email"
                 class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
               <p id="err-email" class="mt-1 text-sm text-red-700" hidden></p>
             </div>
 
             <div>
-              <label for="f-municipi" class="block text-sm font-semibold">Municipi o codi postal *</label>
+              <label for="f-municipi" class="block text-sm font-semibold"><span data-i18n="f_municipi">Municipi o codi postal</span> *</label>
               <input id="f-municipi" name="municipi" type="text" required autocomplete="postal-code" aria-describedby="err-municipi"
                 class="mt-1.5 w-full rounded-xl border border-ink/20 px-4 py-3 focus:border-emerald-mint focus:outline-none">
               <p id="err-municipi" class="mt-1 text-sm text-red-700" hidden></p>
             </div>
 
             <div>
-              <label for="f-rol" class="block text-sm font-semibold">Quin és el teu perfil? *</label>
+              <label for="f-rol" class="block text-sm font-semibold"><span data-i18n="f_rol">Quin és el teu perfil?</span> *</label>
               <select id="f-rol" name="rol" required aria-describedby="err-rol"
                 class="mt-1.5 w-full rounded-xl border border-ink/20 bg-white px-4 py-3 focus:border-emerald-mint focus:outline-none">
-                <option value="">Tria una opció…</option>
-                <option value="particular">Sóc particular (vull buscar/reparar)</option>
-                <option value="entitat">Sóc un Repair Café / Entitat Social</option>
-                <option value="empresa">Sóc una Empresa / Professional</option>
-                <option value="administracio">Represento un Ajuntament / Administració</option>
+                <option value="" data-i18n="f_rol_ph">Tria una opció…</option>
+                <option value="particular" data-i18n="rol_1">Sóc particular (vull buscar/reparar)</option>
+                <option value="entitat" data-i18n="rol_2">Sóc un Repair Café / Entitat Social</option>
+                <option value="empresa" data-i18n="rol_3">Sóc una Empresa / Professional</option>
+                <option value="administracio" data-i18n="rol_4">Represento un Ajuntament / Administració</option>
               </select>
               <p id="err-rol" class="mt-1 text-sm text-red-700" hidden></p>
             </div>
@@ -392,12 +400,12 @@
               <label class="flex items-start gap-3 text-sm">
                 <input id="f-privacitat" name="privacitat" type="checkbox" required aria-describedby="err-privacitat"
                   class="mt-1 h-4 w-4 accent-emerald-deep">
-                <span>He llegit i accepto la <a href="#" class="underline text-emerald-deep">política de privacitat</a> i consento el tractament de les meves dades per a l'accés al pilot (RGPD). *</span>
+                <span><span data-i18n="f_priv_1">He llegit i accepto la</span> <a href="#" class="underline text-emerald-deep" data-i18n="f_priv_link">política de privacitat</a> <span data-i18n="f_priv_2">i consento el tractament de les meves dades per a l'accés al pilot (RGPD).</span> *</span>
               </label>
               <p id="err-privacitat" class="mt-1 text-sm text-red-700" hidden></p>
             </div>
 
-            <button type="submit" class="w-full rounded-xl bg-amber-cta px-5 py-3.5 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition">
+            <button type="submit" class="w-full rounded-xl bg-amber-cta px-5 py-3.5 font-semibold text-white shadow-lg shadow-amber-cta/30 hover:bg-amber-ctaDark transition" data-i18n="f_submit">
               Vull formar part del projecte
             </button>
             <p id="form-status" class="text-sm text-ink/60 min-h-[1rem]" role="status"></p>
@@ -406,16 +414,16 @@
           <!-- Estat d'èxit -->
           <div id="success" class="text-center py-6" hidden tabindex="-1">
             <div class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-mint/15 text-3xl" aria-hidden="true">🌿</div>
-            <span class="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-800">Circular Ambassador</span>
-            <h3 class="mt-3 text-2xl font-bold text-emerald-deep">Benvingut/da, <span id="success-name"></span>!</h3>
-            <p class="mt-2 text-ink/70">T'hem reservat la teva plaça al pilot. Quan s'obri el teu municipi, t'avisarem.</p>
+            <span class="mt-4 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-bold uppercase tracking-wider text-amber-800" data-i18n="s_badge">Circular Ambassador</span>
+            <h3 class="mt-3 text-2xl font-bold text-emerald-deep"><span data-i18n="s_hello">Benvingut/da</span>, <span id="success-name"></span>!</h3>
+            <p class="mt-2 text-ink/70" data-i18n="s_text">T'hem reservat la teva plaça al pilot. Quan s'obri el teu municipi, t'avisarem.</p>
 
-            <p class="mt-6 text-sm font-semibold text-ink/70">Comparteix-ho amb els teus veïns</p>
+            <p class="mt-6 text-sm font-semibold text-ink/70" data-i18n="s_share">Comparteix-ho amb els teus veïns</p>
             <div class="mt-3 flex flex-wrap justify-center gap-3">
               <a id="share-wa" href="#" target="_blank" rel="noopener" class="rounded-xl bg-[#25D366] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90">WhatsApp</a>
               <a id="share-tg" href="#" target="_blank" rel="noopener" class="rounded-xl bg-[#229ED9] px-4 py-2.5 text-sm font-semibold text-white hover:opacity-90">Telegram</a>
             </div>
-            <button id="reset-form" type="button" class="mt-6 text-sm underline text-emerald-deep">Registrar una altra persona</button>
+            <button id="reset-form" type="button" class="mt-6 text-sm underline text-emerald-deep" data-i18n="s_reset">Registrar una altra persona</button>
           </div>
         </div>
       </div>
@@ -424,44 +432,44 @@
     <!-- FAQ -->
     <section id="faq" class="mx-auto max-w-3xl px-4 py-20 scroll-mt-20">
       <div class="text-center">
-        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint">Dubtes habituals</p>
-        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep">Preguntes freqüents</h2>
+        <p class="text-sm font-semibold uppercase tracking-wider text-emerald-mint" data-i18n="faq_kicker">Dubtes habituals</p>
+        <h2 class="mt-2 text-3xl md:text-4xl font-bold text-emerald-deep" data-i18n="faq_title">Preguntes freqüents</h2>
       </div>
 
       <div class="mt-10 space-y-3" data-accordion>
         <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
           <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-1" id="faq-b1">
-            Quina diferència hi ha amb Wallapop?
+            <span data-i18n="q1">Quina diferència hi ha amb Wallapop?</span>
             <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
           <div id="faq-1" role="region" aria-labelledby="faq-b1" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
-            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Wallapop és compravenda entre particulars. Reviu digitalitza el circuit municipal i social: deixalleries, entitats d'inserció, Repair Cafès i empreses, amb traçabilitat oficial per a l'ARC i garantia en els productes reacondicionats.</p></div>
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75" data-i18n="a1q">Wallapop és compravenda entre particulars. Reviu digitalitza el circuit municipal i social: deixalleries, entitats d'inserció, Repair Cafès i empreses, amb traçabilitat oficial per a l'ARC i garantia en els productes reacondicionats.</p></div>
           </div>
         </div>
 
         <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
           <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-2" id="faq-b2">
-            Quin cost té utilitzar la plataforma?
+            <span data-i18n="q2">Quin cost té utilitzar la plataforma?</span>
             <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
           <div id="faq-2" role="region" aria-labelledby="faq-b2" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
-            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Per a la ciutadania, l'accés és gratuït o de baix cost, i cada objecte té un preu d'estalvi o de recuperació clar. Per a administracions i empreses, el model és de subscripció. El detall dels preus es definirà durant el pilot.</p></div>
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75" data-i18n="a2q">Per a la ciutadania, l'accés és gratuït o de baix cost, i cada objecte té un preu d'estalvi o de recuperació clar. Per a administracions i empreses, el model és de subscripció. El detall dels preus es definirà durant el pilot.</p></div>
           </div>
         </div>
 
         <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
           <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-3" id="faq-b3">
-            Com s'evita que la gent reservi i no reculli?
+            <span data-i18n="q3">Com s'evita que la gent reservi i no reculli?</span>
             <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
           <div id="faq-3" role="region" aria-labelledby="faq-b3" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
-            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Cada reserva té un termini de 72 hores. Si no es recull, l'objecte torna a estar disponible per a la comunitat. Estem dissenyant confirmacions i un sistema de reputació per reduir encara més els no-shows.</p></div>
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75" data-i18n="a3q">Cada reserva té un termini de 72 hores. Si no es recull, l'objecte torna a estar disponible per a la comunitat. Estem dissenyant confirmacions i un sistema de reputació per reduir encara més els no-shows.</p></div>
           </div>
         </div>
 
         <div class="rounded-2xl bg-white ring-1 ring-emerald-deep/10">
           <h3><button type="button" class="acc-btn flex w-full items-center justify-between gap-4 p-5 text-left font-semibold" aria-expanded="false" aria-controls="faq-4" id="faq-b4">
-            Compleix amb la normativa de l'ARC i protecció de dades?
+            <span data-i18n="q4">Compleix amb la normativa de l'ARC i protecció de dades?</span>
             <span class="acc-icon text-emerald-deep text-xl transition-transform" aria-hidden="true">+</span></button></h3>
           <div id="faq-4" role="region" aria-labelledby="faq-b4" class="acc-panel grid grid-rows-[0fr] transition-[grid-template-rows] duration-300">
-            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75">Està dissenyat per als marcs del Decret Legislatiu 1/2009, la Llei 7/2022, la Directiva (UE) 2024/1799 i el RGPD/LOPDGDD. L'adreça exacta d'un particular mai es mostra al mapa, i el xat intern evita compartir telèfons o correus. La validació jurídica final forma part del pilot.</p></div>
+            <div class="overflow-hidden"><p class="px-5 pb-5 text-ink/75" data-i18n="a4q">Està dissenyat per als marcs del Decret Legislatiu 1/2009, la Llei 7/2022, la Directiva (UE) 2024/1799 i el RGPD/LOPDGDD. L'adreça exacta d'un particular mai es mostra al mapa, i el xat intern evita compartir telèfons o correus. La validació jurídica final forma part del pilot.</p></div>
           </div>
         </div>
       </div>
@@ -479,25 +487,25 @@
           </svg>
           Reviu
         </p>
-        <p class="mt-3 text-sm">Economia circular real: menys residus, més comunitat.</p>
+        <p class="mt-3 text-sm" data-i18n="f_tag">Economia circular real: menys residus, més comunitat.</p>
       </div>
 
       <div class="text-sm">
-        <p class="font-semibold text-white">Alineat amb</p>
+        <p class="font-semibold text-white" data-i18n="f_aligned">Alineat amb</p>
         <ul class="mt-3 space-y-2">
-          <li>Directiva (UE) 2024/1799 sobre el dret a reparar</li>
-          <li>ODS 11, 12 i 13 de l'Agenda 2030</li>
+          <li data-i18n="f_dir">Directiva (UE) 2024/1799 sobre el dret a reparar</li>
+          <li data-i18n="f_ods">ODS 11, 12 i 13 de l'Agenda 2030</li>
         </ul>
       </div>
 
       <div class="text-sm">
-        <p class="font-semibold text-white">Enllaços</p>
+        <p class="font-semibold text-white" data-i18n="f_links">Enllaços</p>
         <ul class="mt-3 space-y-2">
-          <li><a class="underline hover:text-white" href="https://github.com/jordidh/proto-upcycling-frontend" target="_blank" rel="noopener">Codi obert a GitHub</a></li>
-          <li><a class="underline hover:text-white" href="#">Política de privacitat</a></li>
-          <li><a class="underline hover:text-white" href="#">Avís legal</a></li>
+          <li><a class="underline hover:text-white" href="https://github.com/jordidh/proto-upcycling-frontend" target="_blank" rel="noopener" data-i18n="f_gh">Codi obert a GitHub</a></li>
+          <li><a class="underline hover:text-white" href="#" data-i18n="f_privacy">Política de privacitat</a></li>
+          <li><a class="underline hover:text-white" href="#" data-i18n="f_legal">Avís legal</a></li>
         </ul>
-        <p class="mt-6 text-xs text-white/50">© 2026 Reviu · Llicència MIT</p>
+        <p class="mt-6 text-xs text-white/50">© 2026 Reviu · <span data-i18n="f_license">Llicència MIT</span></p>
       </div>
     </div>
   </footer>
@@ -506,24 +514,256 @@
     (function () {
       'use strict';
 
-      var STORAGE_KEY = 'reviu_waitlist';
+      // ==========================================================
+      // TRADUCCIONS
+      // Català és l'idioma per defecte (també és el text de l'HTML).
+      // ==========================================================
+      var I18N = {
+        ca: {
+          title: 'Reviu | Economia circular per a municipis, entitats i ciutadania',
+          description: 'Reviu connecta deixalleries, Repair Cafès, entitats socials, empreses i ciutadania per trobar, reservar i reutilitzar objectes amb traçabilitat oficial. Apunta\'t al pilot.',
+          skip: 'Salta al contingut', lang_label: 'Idioma', nav_how: 'Com funciona', nav_who: 'Per a qui és', nav_impact: 'Impacte', nav_faq: 'Preguntes freqüents', nav_cta: 'Vull participar-hi'
+        },
+        es: {
+          title: 'Reviu | Economía circular para municipios, entidades y ciudadanía',
+          description: 'Reviu conecta puntos limpios, Repair Cafés, entidades sociales, empresas y ciudadanía para encontrar, reservar y reutilizar objetos con trazabilidad oficial. Apúntate al piloto.',
+          skip: 'Saltar al contenido', lang_label: 'Idioma', nav_how: 'Cómo funciona', nav_who: 'Para quién es', nav_impact: 'Impacto', nav_faq: 'Preguntas frecuentes', nav_cta: 'Quiero participar'
+        },
+        en: {
+          title: 'Reviu | Circular economy for cities, organisations and citizens',
+          description: 'Reviu connects municipal recycling centres, Repair Cafés, social enterprises, businesses and citizens to find, reserve and reuse items with official traceability. Join the pilot.',
+          skip: 'Skip to content', lang_label: 'Language', nav_how: 'How it works', nav_who: 'Who it is for', nav_impact: 'Impact', nav_faq: 'FAQ', nav_cta: 'I want to take part'
+        }
+      };
+
+      // Textos de les seccions (HTML permès: són textos propis)
+      var COPY = {
+        ca: {
+          hero_badge: 'Economia circular real al teu municipi · Prova Pilot 2026',
+          hero_h1: 'Dona una segona vida als objectes del teu barri. Estalvia diners, evita residus.',
+          hero_lead: 'Connectem deixalleries, Repair Cafès, entitats socials i veïns en un sol lloc: trobes mobles, peces i eines reutilitzables i les reserves en dos minuts, amb garantia i traçabilitat oficial.',
+          hero_email_label: 'Correu electrònic', hero_ph: 'El teu correu electrònic', hero_btn: 'Reserva la teva plaça al pilot', hero_trust: 'Gratuït · Sense compromís · Accés prioritari',
+          demo_head: 'Reviu · Catàleg', demo_count: '3 objectes a prop', demo_title: 'Taula de fusta massissa', demo_tag_func: 'Funcional', demo_tag_co2: 'Estalvi: 24 kg CO₂', demo_tag_warranty: 'Garantia 1 any', demo_btn: 'Reservar aquest objecte', demo_btn_reserved: 'Ja reservat · codi REC-84920', demo_msg_reserved: 'Reserva simulada: recull-lo dins de 72 h.', demo_caption: 'Previsualització interactiva del prototip. Dades d\'exemple.',
+          impact_kicker: 'Per què ara', impact_title: 'Les xifres que ens han motivat',
+          stat1: 'de la població espanyola ha comprat productes de segona mà', stat2: 'dels mobles de les deixalleries podrien tornar a usar-se', stat3: 'com a màxim es prepara realment per a la reutilització', stat4: 'de recuperació de petits aparells quan les entitats hi accedeixen a temps',
+          impact_ecosystem: 'Dissenyat per col·laborar amb Deixalleries Municipals, Repair Cafès, Entitats Socials i Ajuntaments.',
+          impact_sources: 'Fonts: OCU (2026), AERESS (balanç social 2025) i estimacions de caracterització de deixalleries recollides a la proposta de valor de Reviu.',
+          prob_kicker: 'Per què Reviu?', prob_title: 'Ara mateix, la major part del que es podria reutilitzar acaba triturat',
+          prob_bad_h: 'Avui', prob_bad_1: 'Només un 1–3% dels mobles dipositats es prepara per a la reutilització.', prob_bad_2: 'El transport (40–80 €) sovint costa més que el valor del moble.', prob_bad_3: 'Els aparells es malmeten a la intempèrie o els roben el coure i el motor.', prob_bad_4: 'Sense garantia ni certificat elèctric, moltes entitats no els poden vendre.', prob_bad_5: 'Els tràmits amb l\'ARC són lents i manuals.',
+          prob_good_h: 'Amb Reviu', prob_good_1: 'Les deixalleries i entitats publiquen l\'objecte en segons, i els tallers el veuen a l\'instant.', prob_good_2: 'La cerca per proximitat et mostra el que tens a prop, sense exposar la teva adreça.', prob_good_3: 'Cada objecte té estat, garantia i preu clars abans de reservar-lo.', prob_good_4: 'Els estats de traçabilitat per a l\'ARC es registren automàticament.', prob_good_5: 'Reserves amb termini de 72 h: si no es recull, torna a estar disponible.',
+          how_kicker: 'Com funciona', how_title: 'Tres passos, segons qui ets', how_tabs_aria: 'Tipus d\'usuari', tab_a: 'Ciutadania i reparadors', tab_b: 'Entitats, empreses i administració',
+          a1_t: 'Cerca a prop de casa', a1_d: 'Filtra per categoria, origen i estat. Veu què hi ha al teu barri o al teu municipi.', a2_t: 'Reserva amb codi', a2_d: 'Reserva en dos minuts i rep un codi de reserva (per exemple REC-84920) per recollir l\'objecte.', a3_t: 'Recull i estalvia', a3_d: 'Recull l\'objecte dins de 72 hores amb la garantia indicada. Tu també estalvies CO₂.',
+          b1_t: 'Publica en 30 segons', b1_d: 'Puja un objecte o un lot des del mòbil, o carrega l\'inventari amb un fitxer CSV o per API.', b2_t: 'Geolocalització i alertes', b2_d: 'La plataforma localitza el recurs i avisa automàticament tallers, entitats i professionals acreditats propers.', b3_t: 'Traçabilitat i certificat', b3_d: 'Estats oficials per a l\'ARC, mètriques de CO₂ i kg desviats i certificat d\'impacte, sense paperassa.',
+          who_kicker: 'Per a qui és', who_title: 'Guanya tothom qui hi participa',
+          who1_t: 'Ciutadania', who1_d: 'Mobles, peces i eines a cost zero o simbòlic, amb garantia. Cerca per barri o codi postal sense mostrar mai la teva adreça exacta.',
+          who2_t: 'Repair Cafès i entitats socials', who2_d: 'Accés als materials abans que es malmetin a la intempèrie, amb circuits clars de recollida i un registre per certificar la seguretat elèctrica. Més inserció sociolaboral.',
+          who3_t: 'Empreses i professionals', who3_d: 'Dona sortida legal i àgil als excedents i al mobiliari en desús. Els professionals acreditats poden accedir a lots de fusta municipal amb els requisits LPRL validats.',
+          who4_t: 'Administració local', who4_d: 'Compleix les metes de prevenció de residus i genera automàticament informes de kg desviats, CO₂ estalviat i dades exportables en JSON o CSV per a auditories ODS.',
+          ods11: '<strong>Ciutats i comunitats sostenibles.</strong> Redueix l\'impacte ambiental per càpita i reforça els Repair Cafès i les deixalleries de proximitat com a espais comunitaris.',
+          ods12: '<strong>Producció i consum responsables.</strong> Impulsa la jerarquia de residus: primer reutilitzar, després reparar i només al final reciclar (metes 12.2, 12.4 i 12.5).',
+          ods13: '<strong>Acció pel clima.</strong> Cada objecte reutilitzat evita l\'energia i les emissions de fabricar-ne un de nou, i Reviu en calcula els kg de CO₂ estalviats.',
+          ods_who: 'Segons l\'OMS, allargar la vida útil dels aparells redueix residus electrònics tòxics i la contaminació de l\'aire associada a la fabricació de productes nous.',
+          vid_kicker: 'Mira-ho en acció', vid_title: 'Com es veu Reviu en el dia a dia', vid_fallback: 'El teu navegador no pot reproduir aquest vídeo.',
+          vid1_t: 'Escenari 1: reutilitzar un objecte', vid1_d: 'Un objecte en bon estat arriba a la deixalleria, es publica a Reviu i un taller el repara i el torna a posar a la venda amb garantia.',
+          vid2_t: 'Escenari 2: encàrrec municipal', vid2_d: 'Un ajuntament publica una tasca, com la retirada d\'un arbre caigut, i professionals acreditats l\'accepten en un clic.',
+          reg_kicker: 'Pilot 2026 · Accés prioritari', reg_title: 'Uneix-te a la comunitat que transforma residus en recursos', reg_lead: 'Apunta\'t al llistat d\'espera del pilot. T\'avisarem quan el teu municipi o la teva entitat pugui començar, i tindràs accés prioritari a les primeres reserves.', reg_b1: '✓ Gratuït durant el pilot', reg_b2: '✓ Sense compromís', reg_b3: '✓ Les teves dades es tracten segons el RGPD',
+          f_hint: 'Els camps amb * són obligatoris.', f_nom: 'Nom o organització', f_email: 'Correu electrònic', f_municipi: 'Municipi o codi postal', f_rol: 'Quin és el teu perfil?', f_rol_ph: 'Tria una opció…', rol_1: 'Sóc particular (vull buscar/reparar)', rol_2: 'Sóc un Repair Café / Entitat Social', rol_3: 'Sóc una Empresa / Professional', rol_4: 'Represento un Ajuntament / Administració',
+          f_priv_1: 'He llegit i accepto la', f_priv_link: 'política de privacitat', f_priv_2: 'i consento el tractament de les meves dades per a l\'accés al pilot (RGPD).', f_submit: 'Vull formar part del projecte',
+          v_nom: 'Escriu el teu nom o el de l\'organització.', v_email: 'Introdueix un correu electrònic vàlid.', v_municipi: 'Indica el municipi o el codi postal.', v_rol: 'Tria el teu perfil.', v_priv: 'Cal acceptar la política de privacitat.', v_form: 'Revisa els camps marcats abans d\'enviar.', v_hero: 'Introdueix un correu electrònic vàlid.',
+          s_badge: 'Circular Ambassador', s_hello: 'Benvingut/da', s_text: 'T\'hem reservat la teva plaça al pilot. Quan s\'obri el teu municipi, t\'avisarem.', s_share: 'Comparteix-ho amb els teus veïns', s_reset: 'Registrar una altra persona',
+          share_text: 'M\'acabo d\'apuntar al pilot de Reviu, la plataforma d\'economia circular per reutilitzar objectes del meu municipi. Apunta\'t tu també!',
+          faq_kicker: 'Dubtes habituals', faq_title: 'Preguntes freqüents',
+          q1: 'Quina diferència hi ha amb Wallapop?', a1q: 'Wallapop és compravenda entre particulars. Reviu digitalitza el circuit municipal i social: deixalleries, entitats d\'inserció, Repair Cafès i empreses, amb traçabilitat oficial per a l\'ARC i garantia en els productes reacondicionats.',
+          q2: 'Quin cost té utilitzar la plataforma?', a2q: 'Per a la ciutadania, l\'accés és gratuït o de baix cost, i cada objecte té un preu d\'estalvi o de recuperació clar. Per a administracions i empreses, el model és de subscripció. El detall dels preus es definirà durant el pilot.',
+          q3: 'Com s\'evita que la gent reservi i no reculli?', a3q: 'Cada reserva té un termini de 72 hores. Si no es recull, l\'objecte torna a estar disponible per a la comunitat. Estem dissenyant confirmacions i un sistema de reputació per reduir encara més els no-shows.',
+          q4: 'Compleix amb la normativa de l\'ARC i protecció de dades?', a4q: 'Està dissenyat per als marcs del Decret Legislatiu 1/2009, la Llei 7/2022, la Directiva (UE) 2024/1799 i el RGPD/LOPDGDD. L\'adreça exacta d\'un particular mai es mostra al mapa, i el xat intern evita compartir telèfons o correus. La validació jurídica final forma part del pilot.',
+          f_tag: 'Economia circular real: menys residus, més comunitat.', f_aligned: 'Alineat amb', f_dir: 'Directiva (UE) 2024/1799 sobre el dret a reparar', f_ods: 'ODS 11, 12 i 13 de l\'Agenda 2030', f_links: 'Enllaços', f_gh: 'Codi obert a GitHub', f_privacy: 'Política de privacitat', f_legal: 'Avís legal', f_license: 'Llicència MIT',
+          price_free: '0 €'
+        },
+        es: {
+          hero_badge: 'Economía circular real en tu municipio · Prueba Piloto 2026',
+          hero_h1: 'Dale una segunda vida a los objetos de tu barrio. Ahorra dinero, evita residuos.',
+          hero_lead: 'Conectamos puntos limpios, Repair Cafés, entidades sociales y vecinos en un solo lugar: encuentras muebles, piezas y herramientas reutilizables y los reservas en dos minutos, con garantía y trazabilidad oficial.',
+          hero_email_label: 'Correo electrónico', hero_ph: 'Tu correo electrónico', hero_btn: 'Reserva tu plaza en el piloto', hero_trust: 'Gratuito · Sin compromiso · Acceso prioritario',
+          demo_head: 'Reviu · Catálogo', demo_count: '3 objetos cerca', demo_title: 'Mesa de madera maciza', demo_tag_func: 'Funcional', demo_tag_co2: 'Ahorro: 24 kg CO₂', demo_tag_warranty: 'Garantía 1 año', demo_btn: 'Reservar este objeto', demo_btn_reserved: 'Ya reservado · código REC-84920', demo_msg_reserved: 'Reserva simulada: recógelo en un plazo de 72 h.', demo_caption: 'Vista previa interactiva del prototipo. Datos de ejemplo.',
+          impact_kicker: 'Por qué ahora', impact_title: 'Las cifras que nos han motivado',
+          stat1: 'de la población española ha comprado productos de segunda mano', stat2: 'de los muebles de los puntos limpios podrían volver a usarse', stat3: 'como máximo se prepara realmente para la reutilización', stat4: 'de recuperación de pequeños aparatos cuando las entidades acceden a tiempo',
+          impact_ecosystem: 'Diseñado para colaborar con Puntos Limpios Municipales, Repair Cafés, Entidades Sociales y Ayuntamientos.',
+          impact_sources: 'Fuentes: OCU (2026), AERESS (balance social 2025) y estimaciones de caracterización de puntos limpios recogidas en la propuesta de valor de Reviu.',
+          prob_kicker: '¿Por qué Reviu?', prob_title: 'Hoy, la mayor parte de lo que podría reutilizarse acaba triturado',
+          prob_bad_h: 'Hoy', prob_bad_1: 'Solo un 1–3% de los muebles depositados se prepara para la reutilización.', prob_bad_2: 'El transporte (40–80 €) suele costar más que el valor del mueble.', prob_bad_3: 'Los aparatos se estropean a la intemperie o les roban el cobre y el motor.', prob_bad_4: 'Sin garantía ni certificado eléctrico, muchas entidades no los pueden vender.', prob_bad_5: 'Los trámites con la ARC son lentos y manuales.',
+          prob_good_h: 'Con Reviu', prob_good_1: 'Los puntos limpios y entidades publican el objeto en segundos, y los talleres lo ven al instante.', prob_good_2: 'La búsqueda por proximidad te muestra lo que tienes cerca, sin exponer tu dirección.', prob_good_3: 'Cada objeto tiene estado, garantía y precio claros antes de reservarlo.', prob_good_4: 'Los estados de trazabilidad para la ARC se registran automáticamente.', prob_good_5: 'Reservas con un plazo de 72 h: si no se recoge, vuelve a estar disponible.',
+          how_kicker: 'Cómo funciona', how_title: 'Tres pasos, según quién seas', how_tabs_aria: 'Tipo de usuario', tab_a: 'Ciudadanía y reparadores', tab_b: 'Entidades, empresas y administración',
+          a1_t: 'Busca cerca de casa', a1_d: 'Filtra por categoría, origen y estado. Mira qué hay en tu barrio o en tu municipio.', a2_t: 'Reserva con código', a2_d: 'Reserva en dos minutos y recibe un código de reserva (por ejemplo REC-84920) para recoger el objeto.', a3_t: 'Recoge y ahorra', a3_d: 'Recoge el objeto en un plazo de 72 horas con la garantía indicada. Tú también ahorras CO₂.',
+          b1_t: 'Publica en 30 segundos', b1_d: 'Sube un objeto o un lote desde el móvil, o carga el inventario con un archivo CSV o por API.', b2_t: 'Geolocalización y alertas', b2_d: 'La plataforma localiza el recurso y avisa automáticamente a talleres, entidades y profesionales acreditados cercanos.', b3_t: 'Trazabilidad y certificado', b3_d: 'Estados oficiales para la ARC, métricas de CO₂ y kg desviados y certificado de impacto, sin papeleo.',
+          who_kicker: 'Para quién es', who_title: 'Gana todo el que participa',
+          who1_t: 'Ciudadanía', who1_d: 'Muebles, piezas y herramientas a coste cero o simbólico, con garantía. Busca por barrio o código postal sin mostrar nunca tu dirección exacta.',
+          who2_t: 'Repair Cafés y entidades sociales', who2_d: 'Acceso a los materiales antes de que se estropeen a la intemperie, con circuitos claros de recogida y un registro para certificar la seguridad eléctrica. Más inserción sociolaboral.',
+          who3_t: 'Empresas y profesionales', who3_d: 'Da salida legal y ágil a los excedentes y al mobiliario en desuso. Los profesionales acreditados pueden acceder a lotes de madera municipal con los requisitos LPRL validados.',
+          who4_t: 'Administración local', who4_d: 'Cumple los objetivos de prevención de residuos y genera automáticamente informes de kg desviados, CO₂ ahorrado y datos exportables en JSON o CSV para auditorías ODS.',
+          ods11: '<strong>Ciudades y comunidades sostenibles.</strong> Reduce el impacto ambiental per cápita y refuerza los Repair Cafés y los puntos limpios de proximidad como espacios comunitarios.',
+          ods12: '<strong>Producción y consumo responsables.</strong> Impulsa la jerarquía de residuos: primero reutilizar, después reparar y solo al final reciclar (metas 12.2, 12.4 y 12.5).',
+          ods13: '<strong>Acción por el clima.</strong> Cada objeto reutilizado evita la energía y las emisiones de fabricar uno nuevo, y Reviu calcula los kg de CO₂ ahorrados.',
+          ods_who: 'Según la OMS, alargar la vida útil de los aparatos reduce los residuos electrónicos tóxicos y la contaminación del aire asociada a la fabricación de productos nuevos.',
+          vid_kicker: 'Míralo en acción', vid_title: 'Así se ve Reviu en el día a día', vid_fallback: 'Tu navegador no puede reproducir este vídeo.',
+          vid1_t: 'Escenario 1: reutilizar un objeto', vid1_d: 'Un objeto en buen estado llega al punto limpio, se publica en Reviu y un taller lo repara y lo vuelve a poner a la venta con garantía.',
+          vid2_t: 'Escenario 2: encargo municipal', vid2_d: 'Un ayuntamiento publica una tarea, como la retirada de un árbol caído, y profesionales acreditados la aceptan con un clic.',
+          reg_kicker: 'Piloto 2026 · Acceso prioritario', reg_title: 'Únete a la comunidad que transforma residuos en recursos', reg_lead: 'Apúntate a la lista de espera del piloto. Te avisaremos cuando tu municipio o tu entidad pueda empezar, y tendrás acceso prioritario a las primeras reservas.', reg_b1: '✓ Gratuito durante el piloto', reg_b2: '✓ Sin compromiso', reg_b3: '✓ Tus datos se tratan según el RGPD',
+          f_hint: 'Los campos con * son obligatorios.', f_nom: 'Nombre u organización', f_email: 'Correo electrónico', f_municipi: 'Municipio o código postal', f_rol: '¿Cuál es tu perfil?', f_rol_ph: 'Elige una opción…', rol_1: 'Soy particular (quiero buscar/reparar)', rol_2: 'Soy un Repair Café / Entidad Social', rol_3: 'Soy una Empresa / Profesional', rol_4: 'Represento un Ayuntamiento / Administración',
+          f_priv_1: 'He leído y acepto la', f_priv_link: 'política de privacidad', f_priv_2: 'y consiento el tratamiento de mis datos para el acceso al piloto (RGPD).', f_submit: 'Quiero formar parte del proyecto',
+          v_nom: 'Escribe tu nombre o el de la organización.', v_email: 'Introduce un correo electrónico válido.', v_municipi: 'Indica el municipio o el código postal.', v_rol: 'Elige tu perfil.', v_priv: 'Debes aceptar la política de privacidad.', v_form: 'Revisa los campos marcados antes de enviar.', v_hero: 'Introduce un correo electrónico válido.',
+          s_badge: 'Circular Ambassador', s_hello: 'Bienvenido/a', s_text: 'Te hemos reservado tu plaza en el piloto. Cuando se abra tu municipio, te avisaremos.', s_share: 'Compártelo con tus vecinos', s_reset: 'Registrar a otra persona',
+          share_text: 'Me acabo de apuntar al piloto de Reviu, la plataforma de economía circular para reutilizar objetos de mi municipio. ¡Apúntate tú también!',
+          faq_kicker: 'Dudas habituales', faq_title: 'Preguntas frecuentes',
+          q1: '¿En qué se diferencia de Wallapop?', a1q: 'Wallapop es compraventa entre particulares. Reviu digitaliza el circuito municipal y social: puntos limpios, entidades de inserción, Repair Cafés y empresas, con trazabilidad oficial para la ARC y garantía en los productos reacondicionados.',
+          q2: '¿Cuánto cuesta usar la plataforma?', a2q: 'Para la ciudadanía, el acceso es gratuito o de bajo coste, y cada objeto tiene un precio de ahorro o recuperación claro. Para administraciones y empresas, el modelo es de suscripción. El detalle de los precios se definirá durante el piloto.',
+          q3: '¿Cómo se evita que la gente reserve y no recoja?', a3q: 'Cada reserva tiene un plazo de 72 horas. Si no se recoge, el objeto vuelve a estar disponible para la comunidad. Estamos diseñando confirmaciones y un sistema de reputación para reducir aún más los no-shows.',
+          q4: '¿Cumple con la normativa de la ARC y la protección de datos?', a4q: 'Está diseñado para los marcos del Decreto Legislativo 1/2009, la Ley 7/2022, la Directiva (UE) 2024/1799 y el RGPD/LOPDGDD. La dirección exacta de un particular nunca se muestra en el mapa, y el chat interno evita compartir teléfonos o correos. La validación jurídica final forma parte del piloto.',
+          f_tag: 'Economía circular real: menos residuos, más comunidad.', f_aligned: 'Alineado con', f_dir: 'Directiva (UE) 2024/1799 sobre el derecho a reparar', f_ods: 'ODS 11, 12 y 13 de la Agenda 2030', f_links: 'Enlaces', f_gh: 'Código abierto en GitHub', f_privacy: 'Política de privacidad', f_legal: 'Aviso legal', f_license: 'Licencia MIT',
+          price_free: '0 €'
+        },
+        en: {
+          hero_badge: 'Real circular economy in your city · Pilot 2026',
+          hero_h1: 'Give new life to the items in your neighbourhood. Save money, avoid waste.',
+          hero_lead: 'We connect municipal recycling centres, Repair Cafés, social enterprises and neighbours in one place: find reusable furniture, parts and tools, and reserve them in two minutes, with a warranty and official traceability.',
+          hero_email_label: 'Email address', hero_ph: 'Your email address', hero_btn: 'Reserve your pilot place', hero_trust: 'Free · No commitment · Priority access',
+          demo_head: 'Reviu · Catalogue', demo_count: '3 items nearby', demo_title: 'Solid wood table', demo_tag_func: 'Working', demo_tag_co2: 'Savings: 24 kg CO₂', demo_tag_warranty: '1-year warranty', demo_btn: 'Reserve this item', demo_btn_reserved: 'Already reserved · code REC-84920', demo_msg_reserved: 'Simulated reservation: collect it within 72 h.', demo_caption: 'Interactive preview of the prototype. Sample data.',
+          impact_kicker: 'Why now', impact_title: 'The numbers that motivated us',
+          stat1: 'of the Spanish population has bought second-hand products', stat2: 'of the furniture at recycling centres could be used again', stat3: 'at most is actually prepared for reuse', stat4: 'recovery rate for small appliances when organisations get access in time',
+          impact_ecosystem: 'Designed to work with Municipal Recycling Centres, Repair Cafés, Social Enterprises and City Councils.',
+          impact_sources: 'Sources: OCU (2026), AERESS (social balance 2025) and recycling-centre characterisation estimates cited in the Reviu value proposal.',
+          prob_kicker: 'Why Reviu?', prob_title: 'Right now, most of what could be reused ends up shredded',
+          prob_bad_h: 'Today', prob_bad_1: 'Only 1–3% of the furniture dropped off is prepared for reuse.', prob_bad_2: 'Transport (€40–80) often costs more than the furniture is worth.', prob_bad_3: 'Appliances are damaged by the weather or stripped of copper and motors.', prob_bad_4: 'Without a warranty or safety certificate, many organisations cannot sell them.', prob_bad_5: 'Paperwork with the Catalan Waste Agency (ARC) is slow and manual.',
+          prob_good_h: 'With Reviu', prob_good_1: 'Recycling centres and organisations publish the item in seconds, and workshops see it instantly.', prob_good_2: 'Proximity search shows what is near you, without exposing your address.', prob_good_3: 'Every item has a clear condition, warranty and price before you reserve it.', prob_good_4: 'ARC traceability statuses are recorded automatically.', prob_good_5: 'Reservations have a 72-hour window: if not collected, the item becomes available again.',
+          how_kicker: 'How it works', how_title: 'Three steps, depending on who you are', how_tabs_aria: 'User type', tab_a: 'Citizens and repairers', tab_b: 'Organisations, businesses and public administration',
+          a1_t: 'Search near home', a1_d: 'Filter by category, origin and condition. See what is in your neighbourhood or city.', a2_t: 'Reserve with a code', a2_d: 'Reserve in two minutes and get a reservation code (for example REC-84920) to collect the item.', a3_t: 'Collect and save', a3_d: 'Collect the item within 72 hours with the stated warranty. You also save CO₂.',
+          b1_t: 'Publish in 30 seconds', b1_d: 'Upload an item or a batch from your phone, or load your inventory with a CSV file or via API.', b2_t: 'Geolocation and alerts', b2_d: 'The platform locates the resource and automatically alerts nearby workshops, organisations and accredited professionals.', b3_t: 'Traceability and certificate', b3_d: 'Official ARC statuses, CO₂ and kg-diverted metrics, and an impact certificate, with no paperwork.',
+          who_kicker: 'Who it is for', who_title: 'Everyone who takes part benefits',
+          who1_t: 'Citizens', who1_d: 'Furniture, parts and tools at zero or symbolic cost, with a warranty. Search by neighbourhood or postcode without ever showing your exact address.',
+          who2_t: 'Repair Cafés and social enterprises', who2_d: 'Access to materials before the weather damages them, with clear collection routes and a record to certify electrical safety. More social and labour inclusion.',
+          who3_t: 'Businesses and professionals', who3_d: 'Give surplus stock and unused office furniture a legal, fast exit. Accredited professionals can access municipal timber lots with validated occupational-safety (LPRL) requirements.',
+          who4_t: 'Local government', who4_d: 'Meet waste-prevention targets and automatically generate reports on kg diverted, CO₂ saved and data exportable as JSON or CSV for SDG audits.',
+          ods11: '<strong>Sustainable cities and communities.</strong> Reduces the per-capita environmental impact and strengthens Repair Cafés and local recycling centres as community spaces.',
+          ods12: '<strong>Responsible consumption and production.</strong> Supports the waste hierarchy: reuse first, then repair, and recycling only at the end (targets 12.2, 12.4 and 12.5).',
+          ods13: '<strong>Climate action.</strong> Every reused item avoids the energy and emissions of making a new one, and Reviu calculates the kg of CO₂ saved.',
+          ods_who: 'According to the WHO, extending the life of appliances reduces toxic electronic waste and the air pollution linked to manufacturing new products.',
+          vid_kicker: 'See it in action', vid_title: 'What Reviu looks like day to day', vid_fallback: 'Your browser cannot play this video.',
+          vid1_t: 'Scenario 1: reusing an item', vid1_d: 'A good-condition item arrives at the recycling centre, is published on Reviu, and a workshop repairs it and sells it again with a warranty.',
+          vid2_t: 'Scenario 2: municipal task', vid2_d: 'A council publishes a task, such as removing a fallen tree, and accredited professionals accept it with one click.',
+          reg_kicker: 'Pilot 2026 · Priority access', reg_title: 'Join the community that turns waste into resources', reg_lead: 'Sign up for the pilot waiting list. We will let you know when your city or organisation can start, and you will get priority access to the first reservations.', reg_b1: '✓ Free during the pilot', reg_b2: '✓ No commitment', reg_b3: '✓ Your data is handled under GDPR',
+          f_hint: 'Fields marked * are required.', f_nom: 'Name or organisation', f_email: 'Email address', f_municipi: 'City or postcode', f_rol: 'Which best describes you?', f_rol_ph: 'Choose an option…', rol_1: 'I am a private individual (I want to find/repair)', rol_2: 'I am a Repair Café / Social Enterprise', rol_3: 'I am a Business / Professional', rol_4: 'I represent a City Council / Administration',
+          f_priv_1: 'I have read and accept the', f_priv_link: 'privacy policy', f_priv_2: 'and consent to my data being processed for pilot access (GDPR).', f_submit: 'I want to join the project',
+          v_nom: 'Enter your name or your organisation\'s name.', v_email: 'Enter a valid email address.', v_municipi: 'Enter your city or postcode.', v_rol: 'Choose your profile.', v_priv: 'You must accept the privacy policy.', v_form: 'Check the marked fields before submitting.', v_hero: 'Enter a valid email address.',
+          s_badge: 'Circular Ambassador', s_hello: 'Welcome', s_text: 'We have reserved your place in the pilot. When your city opens, we will let you know.', s_share: 'Share it with your neighbours', s_reset: 'Register someone else',
+          share_text: 'I just signed up for the Reviu pilot, the circular economy platform for reusing items in my city. Join me!',
+          faq_kicker: 'Common questions', faq_title: 'Frequently asked questions',
+          q1: 'How is it different from Wallapop?', a1q: 'Wallapop is peer-to-peer resale. Reviu digitises the municipal and social circuit: recycling centres, social enterprises, Repair Cafés and businesses, with official ARC traceability and a warranty on refurbished products.',
+          q2: 'How much does it cost to use the platform?', a2q: 'For citizens, access is free or low-cost, and every item has a clear savings or recovery price. For administrations and businesses, the model is a subscription. Detailed pricing will be defined during the pilot.',
+          q3: 'How do you prevent people from reserving and not collecting?', a3q: 'Each reservation has a 72-hour window. If it is not collected, the item becomes available to the community again. We are designing confirmations and a reputation system to reduce no-shows further.',
+          q4: 'Does it comply with ARC waste rules and data protection law?', a4q: 'It is designed around Legislative Decree 1/2009, Law 7/2022, Directive (EU) 2024/1799 and the GDPR/LOPDGDD. A private individual\'s exact address is never shown on the map, and the in-app chat avoids sharing phone numbers or emails. Final legal validation is part of the pilot.',
+          f_tag: 'Real circular economy: less waste, more community.', f_aligned: 'Aligned with', f_dir: 'Directive (EU) 2024/1799 on the right to repair', f_ods: 'SDGs 11, 12 and 13 of the 2030 Agenda', f_links: 'Links', f_gh: 'Open source on GitHub', f_privacy: 'Privacy policy', f_legal: 'Legal notice', f_license: 'MIT License',
+          price_free: '0 €'
+        }
+      };
+
+      // Quan el text és HTML, es posa amb innerHTML; el del HTML original (català) es conserva
+      // com a valor per defecte, així que la pàgina sense JS continua funcionant.
+      var STORAGE_KEY = 'reviu_lang';
+      var WAITLIST_KEY = 'reviu_waitlist';
       var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var currentLang = 'ca';
 
       function $(sel, ctx) { return (ctx || document).querySelector(sel); }
       function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+      function t(key) {
+        var c = COPY[currentLang] || {};
+        if (c[key] !== undefined) return c[key];
+        return (COPY.ca[key] !== undefined) ? COPY.ca[key] : key;
+      }
 
-      // ---- Persistència segura (localStorage pot fallar en mode privat) ----
+      // ---- Persistència segura ----
+      function readStoredLang() {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+      }
+      function storeLang(code) {
+        try { localStorage.setItem(STORAGE_KEY, code); } catch (e) { /* mode privat: ignorar */ }
+      }
       function readList() {
-        try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { return []; }
+        try { return JSON.parse(localStorage.getItem(WAITLIST_KEY)) || []; } catch (e) { return []; }
       }
       function saveEntry(entry) {
         try {
           var list = readList();
           list.push(entry);
-          localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+          localStorage.setItem(WAITLIST_KEY, JSON.stringify(list));
           return true;
         } catch (e) { return false; }
       }
+
+      // ---- Idioma ----
+      function detectLang() {
+        var saved = readStoredLang();
+        if (saved && I18N[saved]) return saved;
+        var nav = (navigator.language || 'ca').toLowerCase();
+        if (nav.indexOf('es') === 0) return 'es';
+        if (nav.indexOf('en') === 0) return 'en';
+        return 'ca';
+      }
+
+      function applyLang(code) {
+        if (!I18N[code]) code = 'ca';
+        currentLang = code;
+        document.documentElement.lang = code;
+        document.title = I18N[code].title;
+        var meta = $('meta[name="description"]');
+        if (meta) meta.setAttribute('content', I18N[code].description);
+
+        // Textos de la barra i del llenguatge
+        $$('[data-i18n]').forEach(function (el) {
+          var key = el.getAttribute('data-i18n');
+          var value = I18N[code][key] !== undefined ? I18N[code][key] : t(key);
+          if (I18N[code][key] === undefined && COPY[code][key] === undefined && COPY.ca[key] === undefined) return;
+          if (value === undefined) return;
+          el.innerHTML = value;
+        });
+        $$('[data-i18n-ph]').forEach(function (el) { el.setAttribute('placeholder', t(el.getAttribute('data-i18n-ph'))); });
+        $$('[data-i18n-aria]').forEach(function (el) { el.setAttribute('aria-label', t(el.getAttribute('data-i18n-aria'))); });
+
+        // Selector d'idioma
+        var sel = $('#lang-select');
+        if (sel) sel.value = code;
+
+        // Comptadors i errors dinàmics
+        refreshDynamic();
+        renderCountersLabels();
+      }
+
+      function refreshDynamic() {
+        // Preu de la demo
+        var priceEl = $('#demo-price');
+        if (priceEl) priceEl.textContent = t('price_free');
+        // Botó de demo
+        var demoBtn = $('#demo-btn');
+        if (demoBtn && demoBtn.getAttribute('data-state') === 'reserved') {
+          demoBtn.innerHTML = t('demo_btn_reserved');
+        }
+        var demoMsg = $('#demo-msg');
+        if (demoMsg && demoBtn && demoBtn.getAttribute('data-state') === 'reserved') {
+          demoMsg.textContent = t('demo_msg_reserved');
+        }
+        // Missatge de l'hero si ja estava obert
+        var heroError = $('#hero-error');
+        if (heroError && !heroError.hidden) heroError.textContent = t('v_hero');
+        // Errors del formulari visibles
+        Object.keys(fields).forEach(function (key) {
+          var f = fields[key];
+          if (!f.err.hidden) f.err.textContent = f.check(getValue(key), f.el);
+        });
+        // Enllaç de compartir
+        setShareLinks();
+      }
+
+      function renderCountersLabels() { /* les etiquetes són HTML; no cal re-renderitzar comptadors */ }
 
       // ---- Comptadors animats en entrar a la pantalla ----
       function animateCount(el) {
@@ -554,16 +794,16 @@
         counters.forEach(animateCount);
       }
 
-      // ---- Previsualització: botó de reserva ----
+      // ---- Previsualització: botó de reserva (un sol cop) ----
       var demoBtn = $('#demo-btn');
       var demoMsg = $('#demo-msg');
       demoBtn.addEventListener('click', function () {
         if (demoBtn.getAttribute('data-state') === 'reserved') return;
         demoBtn.setAttribute('data-state', 'reserved');
-        demoBtn.textContent = 'Ja reservat · codi REC-84920';
+        demoBtn.innerHTML = t('demo_btn_reserved');
         demoBtn.disabled = true;
         demoBtn.classList.add('opacity-60', 'cursor-not-allowed');
-        demoMsg.textContent = 'Reserva simulada: recull-lo dins de 72 h.';
+        demoMsg.textContent = t('demo_msg_reserved');
       });
 
       // ---- Formulari del hero: porta al registre amb el correu ----
@@ -574,7 +814,7 @@
         e.preventDefault();
         var value = heroEmail.value.trim();
         if (!isValidEmail(value)) {
-          heroError.textContent = 'Introdueix un correu electrònic vàlid.';
+          heroError.textContent = t('v_hero');
           heroError.hidden = false;
           heroEmail.setAttribute('aria-invalid', 'true');
           heroEmail.focus();
@@ -599,15 +839,15 @@
         });
       });
       function activateTab(selected) {
-        tabs.forEach(function (t) {
-          var on = t === selected;
-          t.setAttribute('aria-selected', on ? 'true' : 'false');
-          t.tabIndex = on ? 0 : -1;
-          t.classList.toggle('bg-white', on);
-          t.classList.toggle('shadow', on);
-          t.classList.toggle('text-emerald-deep', on);
-          t.classList.toggle('text-ink/60', !on);
-          var panel = document.getElementById(t.getAttribute('aria-controls'));
+        tabs.forEach(function (t2) {
+          var on = t2 === selected;
+          t2.setAttribute('aria-selected', on ? 'true' : 'false');
+          t2.tabIndex = on ? 0 : -1;
+          t2.classList.toggle('bg-white', on);
+          t2.classList.toggle('shadow', on);
+          t2.classList.toggle('text-emerald-deep', on);
+          t2.classList.toggle('text-ink/60', !on);
+          var panel = document.getElementById(t2.getAttribute('aria-controls'));
           panel.hidden = !on;
         });
       }
@@ -628,19 +868,22 @@
       // ---- Validació i enviament del formulari ----
       var form = $('#waitlist-form');
       var fields = {
-        nom:        { el: $('#f-nom'),        err: $('#err-nom'),        check: function (v) { return v.length >= 2 ? '' : 'Escriu el teu nom o el de l\'organització.'; } },
-        email:      { el: $('#f-email'),      err: $('#err-email'),      check: function (v) { return isValidEmail(v) ? '' : 'Introdueix un correu electrònic vàlid.'; } },
-        municipi:   { el: $('#f-municipi'),   err: $('#err-municipi'),   check: function (v) { return v.length >= 2 ? '' : 'Indica el municipi o el codi postal.'; } },
-        rol:        { el: $('#f-rol'),        err: $('#err-rol'),        check: function (v) { return v ? '' : 'Tria el teu perfil.'; } },
-        privacitat: { el: $('#f-privacitat'), err: $('#err-privacitat'), check: function (_v, el) { return el.checked ? '' : 'Cal acceptar la política de privacitat.'; } }
+        nom:        { el: $('#f-nom'),        err: $('#err-nom'),        check: function (v) { return v.length >= 2 ? '' : t('v_nom'); } },
+        email:      { el: $('#f-email'),      err: $('#err-email'),      check: function (v) { return isValidEmail(v) ? '' : t('v_email'); } },
+        municipi:   { el: $('#f-municipi'),   err: $('#err-municipi'),   check: function (v) { return v.length >= 2 ? '' : t('v_municipi'); } },
+        rol:        { el: $('#f-rol'),        err: $('#err-rol'),        check: function (v) { return v ? '' : t('v_rol'); } },
+        privacitat: { el: $('#f-privacitat'), err: $('#err-privacitat'), check: function (_v, el) { return el.checked ? '' : t('v_priv'); } }
       };
 
+      function getValue(key) {
+        var el = fields[key].el;
+        return el.type === 'checkbox' ? '' : el.value.trim();
+      }
       function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
 
       function validateField(key) {
         var f = fields[key];
-        var value = f.el.type === 'checkbox' ? '' : f.el.value.trim();
-        var msg = f.check(value, f.el);
+        var msg = f.check(getValue(key), f.el);
         f.err.textContent = msg;
         f.err.hidden = !msg;
         if (msg) f.el.setAttribute('aria-invalid', 'true');
@@ -649,9 +892,10 @@
       }
 
       Object.keys(fields).forEach(function (key) {
-        var evt = fields[key].el.type === 'checkbox' || fields[key].el.tagName === 'SELECT' ? 'change' : 'blur';
-        fields[key].el.addEventListener(evt, function () { if (fields[key].el.getAttribute('aria-invalid') || evt === 'change') validateField(key); });
-        fields[key].el.addEventListener('input', function () { if (fields[key].el.getAttribute('aria-invalid')) validateField(key); });
+        var el = fields[key].el;
+        var evt = el.type === 'checkbox' || el.tagName === 'SELECT' ? 'change' : 'blur';
+        el.addEventListener(evt, function () { if (el.getAttribute('aria-invalid') || evt === 'change') validateField(key); });
+        el.addEventListener('input', function () { if (el.getAttribute('aria-invalid')) validateField(key); });
       });
 
       form.addEventListener('submit', function (e) {
@@ -661,7 +905,7 @@
           if (!validateField(key)) { ok = false; if (!firstBad) firstBad = fields[key].el; }
         });
         if (!ok) {
-          $('#form-status').textContent = 'Revisa els camps marcats abans d\'enviar.';
+          $('#form-status').textContent = t('v_form');
           firstBad.focus();
           return;
         }
@@ -671,20 +915,25 @@
           email: fields.email.el.value.trim(),
           municipi: fields.municipi.el.value.trim(),
           rol: fields.rol.el.value,
+          idioma: currentLang,
           data: new Date().toISOString()
         };
         saveEntry(entry); // si localStorage no està disponible, el flux d'èxit es mostra igualment
         showSuccess(entry.nom);
       });
 
+      function setShareLinks() {
+        var url = 'https://github.com/jordidh/proto-upcycling-frontend';
+        var text = t('share_text');
+        $('#share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+        $('#share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+      }
+
       function showSuccess(name) {
         form.hidden = true;
         var success = $('#success');
         $('#success-name').textContent = name;
-        var text = 'M\'acabo d\'apuntar al pilot de Reviu, la plataforma d\'economia circular per reutilitzar objectes del meu municipi. Apunta\'t tu també!';
-        var url = 'https://github.com/jordidh/proto-upcycling-frontend';
-        $('#share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
-        $('#share-tg').href = 'https://t.me/share/url?url=' + encodeURIComponent(url) + '&text=' + encodeURIComponent(text);
+        setShareLinks();
         success.hidden = false;
         success.focus();
       }
@@ -698,6 +947,16 @@
         $$('#waitlist-form p[id^="err-"]').forEach(function (p) { p.hidden = true; });
         $('#f-nom').focus();
       });
+
+      // ---- Selector d'idioma ----
+      $('#lang-select').addEventListener('change', function (e) {
+        var code = e.target.value;
+        storeLang(code);
+        applyLang(code);
+      });
+
+      // ---- Inici ----
+      applyLang(detectLang());
     })();
   </script>
 </body>
